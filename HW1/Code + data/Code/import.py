@@ -185,20 +185,19 @@ X_train, X_test, y_train, y_test = train_test_split(date_info, date_result, test
 
 # -------------------------Random Forest--------------------------------------------
 # Instantiate model with 1000 decision trees
-rf = RandomForestClassifier(n_estimators=1, random_state=42)
+for i in range(10, 26):
+    rf = RandomForestClassifier(n_estimators=1000, random_state=42, max_depth=i)
 
-# Train the model on training data
-rf.fit(X_train, y_train)
+    # Train the model on training data
+    rf.fit(X_train, y_train)
 
-# Check accuracy
-y_pred_train = rf.predict(X_train)
-y_pred_test = rf.predict(X_test)
-accuracy_rf_train = accuracy_score(y_train, y_pred_train) * 100
-accuracy_rf_test = accuracy_score(y_test, y_pred_test) * 100
+    # Check accuracy
+    y_pred_train = rf.predict(X_train)
+    y_pred_test = rf.predict(X_test)
+    accuracy_rf_train = accuracy_score(y_train, y_pred_train) * 100
+    accuracy_rf_test = accuracy_score(y_test, y_pred_test) * 100
 
-
-print("Random Forest - Accuracy Train Set: " + str(accuracy_rf_train))
-print("Random Forest - Accuracy Test Set: " + str(accuracy_rf_test))
+    print(str(i) + " & " + str(accuracy_rf_train) + " & " + str(accuracy_rf_test))
 
 # -------------------------Linear Regression--------------------------------------------
 # K_Nearest = neighbors.KNeighborsClassifier()
