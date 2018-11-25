@@ -1,0 +1,21 @@
+digraph Tree {
+node [shape=box, style="filled, rounded", color="black", fontname=helvetica] ;
+edge [fontname=helvetica] ;
+0 [label=<subject interest dining &le; 4.5<br/>gini = 0.0<br/>samples = 4308<br/>value = [4307, 1]<br/>class = d>, fillcolor="#e58139ff"] ;
+1 [label=<subject interest movies &le; 5.0<br/>gini = 0.011<br/>samples = 181<br/>value = [180, 1]<br/>class = d>, fillcolor="#e58139fe"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label=<partner importance of race &le; 7.0<br/>gini = 0.105<br/>samples = 18<br/>value = [17, 1]<br/>class = d>, fillcolor="#e58139f0"] ;
+1 -> 2 ;
+3 [label=<gini = 0.0<br/>samples = 16<br/>value = [16, 0]<br/>class = d>, fillcolor="#e58139ff"] ;
+2 -> 3 ;
+4 [label=<partner global id &le; 391.0<br/>gini = 0.5<br/>samples = 2<br/>value = [1, 1]<br/>class = d>, fillcolor="#e5813900"] ;
+2 -> 4 ;
+5 [label=<gini = 0.0<br/>samples = 1<br/>value = [0, 1]<br/>class = a>, fillcolor="#399de5ff"] ;
+4 -> 5 ;
+6 [label=<gini = 0.0<br/>samples = 1<br/>value = [1, 0]<br/>class = d>, fillcolor="#e58139ff"] ;
+4 -> 6 ;
+7 [label=<gini = 0.0<br/>samples = 163<br/>value = [163, 0]<br/>class = d>, fillcolor="#e58139ff"] ;
+1 -> 7 ;
+8 [label=<gini = 0.0<br/>samples = 4127<br/>value = [4127, 0]<br/>class = d>, fillcolor="#e58139ff"] ;
+0 -> 8 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+}

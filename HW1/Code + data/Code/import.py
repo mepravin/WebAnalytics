@@ -1,6 +1,14 @@
 import csv
+from tkinter import Image
+
 import numpy as np
+import pydotplus as pydotplus
+from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
+from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
+from sklearn import tree
+from sklearn import neighbors
+import graphviz
 
 
 def formatValue(data):
@@ -33,14 +41,14 @@ table = list()
 
 date = dict()
 subject = dict()
-date_result = dict()
-date_info = dict()
+date_result = list()
+date_info = list()
+date_info_columns = list()
 
 subject_id = "subject global id"
 date_id = "id"
-date_result_id = "id"
-date_info_id = "id"
 
+partner_columns = list()
 subject_columns = list()
 subject_columns.append("subject gender")
 subject_columns.append("subject age d")
@@ -85,11 +93,14 @@ subject_columns.append("subject interest tv")
 subject_columns.append("subject interest watching_sports")
 subject_columns.append("subject interest yoga")
 
+for i in range(len(subject_columns)):
+    new_value = "partner" + subject_columns[i][7:]
+    partner_columns.append(new_value)
+
 date_columns = list()
 date_columns.append("subject global id")
 date_columns.append("partner global id")
-date_columns.append("date partner decision")
-date_columns.append("date subject decision")
+date_columns.append("date match")
 date_columns.append("date partner rates subject")
 date_columns.append("date subject rates partner")
 date_columns.append("date partner prob receive yes")
@@ -130,10 +141,7 @@ with open('speed-dating.csv', 'r') as csvfile:
             readRow.append(value)
         if "null" not in readRow:
             date[row[columnIndexes[date_id]]] = readRow
-
         i += 1
-
-
 for row in date:
     subjectId = date[row][0]
     partnerId = date[row][1]
@@ -142,16 +150,68 @@ for row in date:
     if (subjectInfo is None) or (partnerInfo is None):
         continue
     else:
-        index = date_columns.index("date partner decision")
-        partner_preference = date[row].pop(index)
-        index = date_columns.index("date subject decision")
-        subject_preference = date[row].pop(index)
-        date_result[row] = 1 if ((partner_preference == 1) and (subject_preference == 1)) else 0
+        index = date_columns.index("date match")
+        match = date[row].pop(index)
+        date_result.append(match)
 
         new_row = np.append(date[row], (subjectInfo, partnerInfo))
-        date_info[row] = new_row
+        date_info.append(new_row)
 
-for row in date_info:
-    print(row)
-    print(date_info[row])
+date_columns.remove("date match")
+date_info_columns = np.append(date_columns, (subject_columns, partner_columns))
 
+# --------------------------------Divide Train Test Set -------------------------------------
+X_train, X_test, y_train, y_test = train_test_split(date_info, date_result, test_size=0.25)
+
+# -------------------------Decision Tree --------------------------------------------
+
+# for i in range(1, 11):
+#     dt = tree.DecisionTreeClassifier(max_depth=i)
+#     dt.fit(X_train, y_train)
+#     dot_data = tree.export_graphviz(dt, out_file=None, feature_names=date_info_columns, class_names=["No Date", "Date"],
+#                                     filled=True, rounded=True, special_characters=True)
+#
+#     # Visualise decision tree
+#     graph = pydotplus.graph_from_dot_data(dot_data)
+#     graph.write_pdf("outcome" + str(i) + ".pdf")
+#
+#     # Check accuracy
+#     y_pred_train = dt.predict(X_train)
+#     y_pred_test = dt.predict(X_test)
+#     accuracy_dt_train = accuracy_score(y_train, y_pred_train) * 100
+#     accuracy_dt_test = accuracy_score(y_test, y_pred_test) * 100
+#
+#     print(str(i) + " & " + str(accuracy_dt_train) + " & " + str(accuracy_dt_test))
+
+# -------------------------Random Forest--------------------------------------------
+# Instantiate model with 1000 decision trees
+rf = RandomForestClassifier(n_estimators=1, random_state=42)
+
+# Train the model on training data
+rf.fit(X_train, y_train)
+
+# Check accuracy
+y_pred_train = rf.predict(X_train)
+y_pred_test = rf.predict(X_test)
+accuracy_rf_train = accuracy_score(y_train, y_pred_train) * 100
+accuracy_rf_test = accuracy_score(y_test, y_pred_test) * 100
+
+
+print("Random Forest - Accuracy Train Set: " + str(accuracy_rf_train))
+print("Random Forest - Accuracy Test Set: " + str(accuracy_rf_test))
+
+# -------------------------Linear Regression--------------------------------------------
+# K_Nearest = neighbors.KNeighborsClassifier()
+# K_Nearest.fit(X_train, y_train)
+#
+# y_pred_train = K_Nearest.predict(X_train)
+# for i in range(len(y_pred_train)):
+#     y_pred_train[i] = 0 if y_pred_train[i] < 0.5 else 1
+# y_pred_test = K_Nearest.predict(X_test)
+# for i in range(len(y_pred_test)):
+#     y_pred_test[i] = 0 if y_pred_test[i] < 0.5 else 1
+# accuracy_K_Nearest_train = accuracy_score(y_train, y_pred_train) * 100
+# accuracy_K_Nearest_test = accuracy_score(y_test, y_pred_test) * 100
+#
+# print("K_Nearest - Accuracy Train Set: " + str(accuracy_K_Nearest_train))
+# print("K_Nearest - Accuracy Test Set: " + str(accuracy_K_Nearest_test))
