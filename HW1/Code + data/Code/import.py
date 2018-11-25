@@ -1,5 +1,7 @@
 import csv
 import numpy as np
+from sklearn.model_selection import train_test_split
+
 
 def formatValue(data):
     value = data
@@ -26,13 +28,18 @@ def formatValue(data):
 
     return value
 
+
 table = list()
 
 date = dict()
 subject = dict()
+date_result = dict()
+date_info = dict()
 
 subject_id = "subject global id"
 date_id = "id"
+date_result_id = "id"
+date_info_id = "id"
 
 subject_columns = list()
 subject_columns.append("subject gender")
@@ -52,12 +59,11 @@ subject_columns.append("subject preference intellect d")
 subject_columns.append("subject preference sincere d")
 subject_columns.append("subject preference shared interests d")
 
-
-#subject_columns.append("subject hometown")
-#subject_columns.append("subject hometown zipcode")
-#subject_columns.append("subject school undergraduate")
-#subject_columns.append("subject intended career")
-#subject_columns.append("subject intended career category")
+# subject_columns.append("subject hometown")
+# subject_columns.append("subject hometown zipcode")
+# subject_columns.append("subject school undergraduate")
+# subject_columns.append("subject intended career")
+# subject_columns.append("subject intended career category")
 subject_columns.append("subject importance of race")
 subject_columns.append("subject importance of religion")
 subject_columns.append("subject expected_happy")
@@ -82,8 +88,8 @@ subject_columns.append("subject interest yoga")
 date_columns = list()
 date_columns.append("subject global id")
 date_columns.append("partner global id")
-date_columns.append("date subject decision")
 date_columns.append("date partner decision")
+date_columns.append("date subject decision")
 date_columns.append("date partner rates subject")
 date_columns.append("date subject rates partner")
 date_columns.append("date partner prob receive yes")
@@ -97,50 +103,55 @@ columnIndexes = dict()
 
 categoricalUnits = dict()
 
-
 with open('speed-dating.csv', 'r') as csvfile:
-     spamreader = csv.reader(csvfile, delimiter=',', quotechar='"')
+    spamreader = csv.reader(csvfile, delimiter=',', quotechar='"')
 
-     i = 0
-     counter = 0
-     for row in spamreader:
-         if i == 0:
-             j = 0
-             for col in row:
+    i = 0
+    counter = 0
+    for row in spamreader:
+        if i == 0:
+            j = 0
+            for col in row:
                 columnIndexes[col] = j
                 j += 1
-             i+=1
-             continue
-         readRow = list()
+            i += 1
+            continue
+        readRow = list()
 
-         for name in subject_columns:
-             value = formatValue(row[columnIndexes[name]])
-             readRow.append(value)
-         if "null" not in readRow:
-             subject[row[columnIndexes[subject_id]]] = readRow
-         else:
-             counter = counter + 1
+        for name in subject_columns:
+            value = formatValue(row[columnIndexes[name]])
+            readRow.append(value)
+        if "null" not in readRow:
+            subject[row[columnIndexes[subject_id]]] = readRow
 
-         readRow = list()
-         for name in date_columns:
-             value = formatValue(row[columnIndexes[name]])
-             readRow.append(value)
-         date[row[columnIndexes[date_id]]] = readRow
+        readRow = list()
+        for name in date_columns:
+            value = formatValue(row[columnIndexes[name]])
+            readRow.append(value)
+        if "null" not in readRow:
+            date[row[columnIndexes[date_id]]] = readRow
 
-         i += 1
-
-for date in date_columns:
-    subjectid = date[0]
-    partnerid = date[1]
-    subjectInfo = subject[subjectid]
-    partnerInfo = subject[partnerid]
-    np.concatenate(date, subjectInfo, partnerInfo)
+        i += 1
 
 
-for row in subject:
-    print(subject[row])
+for row in date:
+    subjectId = date[row][0]
+    partnerId = date[row][1]
+    subjectInfo = subject.get(str(subjectId))
+    partnerInfo = subject.get(str(partnerId))
+    if (subjectInfo is None) or (partnerInfo is None):
+        continue
+    else:
+        index = date_columns.index("date partner decision")
+        partner_preference = date[row].pop(index)
+        index = date_columns.index("date subject decision")
+        subject_preference = date[row].pop(index)
+        date_result[row] = 1 if ((partner_preference == 1) and (subject_preference == 1)) else 0
 
+        new_row = np.append(date[row], (subjectInfo, partnerInfo))
+        date_info[row] = new_row
 
-
-
-
+for row in date_info:
+    print(row)
+    print(date_info[row])
+X_train, X_test, y_train, y_test = train_test_split(date_info, date_result, test_size=0.25)
