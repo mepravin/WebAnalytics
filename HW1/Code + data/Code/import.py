@@ -154,4 +154,4 @@ for row in date:
 for row in date_info:
     print(row)
     print(date_info[row])
-X_train, X_test, y_train, y_test = train_test_split(date_info, date_result, test_size=0.25)
+
