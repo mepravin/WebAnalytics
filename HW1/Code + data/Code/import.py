@@ -1,14 +1,14 @@
 import csv
-from tkinter import Image
 
 import numpy as np
-import pydotplus as pydotplus
-from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
+import pydotplus
+from sklearn import neighbors, tree
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
-from sklearn import tree
-from sklearn import neighbors
-import graphviz
+
+
+# import graphviz
 
 
 def formatValue(data):
@@ -103,8 +103,8 @@ date_columns.append("partner global id")
 date_columns.append("date match")
 date_columns.append("date partner rates subject")
 date_columns.append("date subject rates partner")
-date_columns.append("date partner prob receive yes")
 date_columns.append("date subject prob receive yes")
+date_columns.append("date partner prob receive yes")
 date_columns.append("date subject met before")
 date_columns.append("date partner met before")
 date_columns.append("date position")
@@ -166,52 +166,46 @@ X_train, X_test, y_train, y_test = train_test_split(date_info, date_result, test
 # -------------------------Decision Tree --------------------------------------------
 
 # for i in range(1, 11):
-#     dt = tree.DecisionTreeClassifier(max_depth=i)
-#     dt.fit(X_train, y_train)
-#     dot_data = tree.export_graphviz(dt, out_file=None, feature_names=date_info_columns, class_names=["No Date", "Date"],
-#                                     filled=True, rounded=True, special_characters=True)
+# dt = tree.DecisionTreeClassifier()
+# dt.fit(X_train, y_train)
+# dot_data = tree.export_graphviz(dt, out_file=None, feature_names=date_info_columns, class_names=["No Match", "Match"],
+#                                         filled=True, rounded=True, special_characters=True)
 #
 #     # Visualise decision tree
-#     graph = pydotplus.graph_from_dot_data(dot_data)
-#     graph.write_pdf("outcome" + str(i) + ".pdf")
+# graph = pydotplus.graph_from_dot_data(dot_data)
+# graph.write_pdf("outcome.pdf")
 #
 #     # Check accuracy
-#     y_pred_train = dt.predict(X_train)
-#     y_pred_test = dt.predict(X_test)
-#     accuracy_dt_train = accuracy_score(y_train, y_pred_train) * 100
-#     accuracy_dt_test = accuracy_score(y_test, y_pred_test) * 100
+# y_pred_train = dt.predict(X_train)
+# y_pred_test = dt.predict(X_test)
+# accuracy_dt_train = accuracy_score(y_train, y_pred_train) * 100
+# accuracy_dt_test = accuracy_score(y_test, y_pred_test) * 100
 #
-#     print(str(i) + " & " + str(accuracy_dt_train) + " & " + str(accuracy_dt_test))
+# print(str(i) + " & " + str(accuracy_dt_train) + " & " + str(accuracy_dt_test) + "\\\\ \\hline")
 
 # -------------------------Random Forest--------------------------------------------
 # Instantiate model with 1000 decision trees
-rf = RandomForestClassifier(n_estimators=1, random_state=42)
+for i in range(1, 35):
+    rf = RandomForestClassifier(n_estimators=25, random_state=42, max_depth=i, class_weight="balanced")
 
-# Train the model on training data
-rf.fit(X_train, y_train)
+    # Train the model on training data
+    rf.fit(X_train, y_train)
 
-# Check accuracy
-y_pred_train = rf.predict(X_train)
-y_pred_test = rf.predict(X_test)
-accuracy_rf_train = accuracy_score(y_train, y_pred_train) * 100
-accuracy_rf_test = accuracy_score(y_test, y_pred_test) * 100
+    # Check accuracy
+    y_pred_train = rf.predict(X_train)
+    y_pred_test = rf.predict(X_test)
+    accuracy_rf_train = accuracy_score(y_train, y_pred_train) * 100
+    accuracy_rf_test = accuracy_score(y_test, y_pred_test) * 100
 
-
-print("Random Forest - Accuracy Train Set: " + str(accuracy_rf_train))
-print("Random Forest - Accuracy Test Set: " + str(accuracy_rf_test))
+    print(str(i) + " " + str(accuracy_rf_train) + " " + str(accuracy_rf_test))
 
 # -------------------------Linear Regression--------------------------------------------
-# K_Nearest = neighbors.KNeighborsClassifier()
+# for j in range(1, 100):
+# K_Nearest = neighbors.KNeighborsClassifier(n_neighbors=6)
 # K_Nearest.fit(X_train, y_train)
-#
 # y_pred_train = K_Nearest.predict(X_train)
-# for i in range(len(y_pred_train)):
-#     y_pred_train[i] = 0 if y_pred_train[i] < 0.5 else 1
 # y_pred_test = K_Nearest.predict(X_test)
-# for i in range(len(y_pred_test)):
-#     y_pred_test[i] = 0 if y_pred_test[i] < 0.5 else 1
 # accuracy_K_Nearest_train = accuracy_score(y_train, y_pred_train) * 100
 # accuracy_K_Nearest_test = accuracy_score(y_test, y_pred_test) * 100
-#
-# print("K_Nearest - Accuracy Train Set: " + str(accuracy_K_Nearest_train))
-# print("K_Nearest - Accuracy Test Set: " + str(accuracy_K_Nearest_test))
+# #
+# print("K_Nearest Neighbor & " + str(accuracy_K_Nearest_train) + " & " + str(accuracy_K_Nearest_test) + "\\\\ \\hline")
