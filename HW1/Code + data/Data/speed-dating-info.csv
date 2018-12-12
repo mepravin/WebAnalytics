@@ -1,0 +1,212 @@
+id,name,type,typeInfo,description
+1,id,int,,
+2,date nr,int,,The number of date that night when met partner.
+3,date position,int,,Station number where met partner.
+4,date same race,boolean,,Both subject and partner have same race.
+5,date subject met before,boolean,,Subject met partner before.
+6,date partner met before,boolean,,Partner met subject before.
+7,date subject prob receive yes,double,,According to subject: probability that this partner will say 'yes' for you.
+8,date partner prob receive yes,double,,According to partner: probability that this partner will say 'yes' for you.
+9,date subject rates partner,int,,How much does subject like partner.
+10,date partner rates subject,int,,How much does partner like subject.
+11,date partner decision,boolean,,Partner's decision at the night of the event.
+12,date match,boolean,,Both decisions are a 'yes'.
+13,subject local id,int,,"Unique subject number within wave (in original dataset this was id, however I need id to be a truly unique IDentifying column)."
+14,subject gender id,int,,Unique subject number within gender.
+15,subject position_start,int,,station number where started.
+16,subject hometown,String,,Hometown before coming to Columbia.
+17,subject hometown zipcode,int,,Zipcode at hometown before coming to Columbia.
+18,subject field,String,,Field of study.
+19,subject school undergraduate,String,,Subject's school attended for undergraduate degree.
+20,subject intended career,String,,Subject's intended career.
+21,subject intended career category,String,,Subject's intended career (category).
+22,subject importance of race,int,,Subject's importance of partner being of the same racial/ethnic background?
+23,subject importance of religion,int,,Subject's importance of partner being of the same religious background?
+24,subject date frequency,String,,Subject's date frequency.
+25,subject go out frequency,String,,Subject's going out frequency (not necessarily on dates).
+26,subject speeddate reason,String,,Subject's primary goal in participating in this event.
+27,subject expected_happy,int,,Subject's expected satisfaction with the people to meet during the speed-dating event.
+28,subject month after call,int,,Number of matches called by subject (3-4 weeks after).
+29,subject month after called,int,,Number of matches that called subject (3-4 weeks after).
+30,subject n_matches_estimation,int,,Subject's expected number of matches (a match occurs when you and your partner both check 'yes' next to decision).
+31,subject interest art,int,,Subject's interest (art).
+32,subject interest clubbing,int,,Subject's interest (clubbing).
+33,subject interest concerts,int,,Subject's interest (concerts).
+34,subject interest dining,int,,Subject's interest (dining).
+35,subject interest exercise,int,,Subject's interest (exercise).
+36,subject interest gaming,int,,Subject's interest (gaming).
+37,subject interest hiking,int,,Subject's interest (hiking).
+38,subject interest movies,int,,Subject's interest (movies).
+39,subject interest museums,int,,Subject's interest (museums).
+40,subject interest music,int,,Subject's interest (music).
+41,subject interest reading,int,,Subject's interest (reading).
+42,subject interest shopping,int,,Subject's interest (shopping).
+43,subject interest sports,int,,Subject's interest (sports).
+44,subject interest theater,int,,Subject's interest (theater).
+45,subject interest tv,int,,Subject's interest (tv).
+46,subject interest watching_sports,int,,Subject's interest watching (sports).
+47,subject interest yoga,int,,Subject's interest (yoga).
+48,subject judgement on date length,String,,Subjects judgement regarding the length of a speeddate (4 minutes).
+49,subject judgement on n dates,String,,Subjects judgement regarding the number of speeddates (20).
+50,subject month after went on date,boolean,,Subject went on date with any of his or her matches (3-4 weeks after).
+51,subject month after went on date n_times,int,,"If subject went on date, number of times the subject went on a date (3-4 weeks after)."
+52,subject month after went on date with_n,int,,"If subject went on date, number of matches he or her went on a date with (3-4 weeks after)."
+53,subject satisfied_with dates,int,,Subject's satisfaction with the people he or she met.
+54,subject during date ambition,int,,"Subject rates him/herself (ambition, halfway during speeddates)."
+55,subject during date attractive,int,,"Subject rates him/herself (attractive, halfway during speeddates)."
+56,subject during date funny,int,,"Subject rates him/herself (funny, halfway during speeddates)."
+57,subject during date intellect,int,,"Subject rates him/herself (intellect, halfway during speeddates)."
+58,subject during date sincere,int,,"Subject rates him/herself (sincere, halfway during speeddates)."
+59,subject day after ambition,int,,"Subject rates him/herself (ambition, one day after speeddates)."
+60,subject day after attractive,int,,"Subject rates him/herself (attractive, one day after speeddates)."
+61,subject day after funny,int,,"Subject rates him/herself (funny, one day after speeddates)."
+62,subject day after intellect,int,,"Subject rates him/herself (intellect, one day after speeddates)."
+63,subject day after sincere,int,,"Subject rates him/herself (sincere, one day after speeddates)."
+64,subject month after ambition,int,,"Subject rates him/herself (ambition, one month after speeddates)."
+65,subject month after attractive,int,,"Subject rates him/herself (attractive, one month after speeddates)."
+66,subject month after funny,int,,"Subject rates him/herself (funny, one month after speeddates)."
+67,subject month after intellect,int,,"Subject rates him/herself (intellect, one month after speeddates)."
+68,subject month after sincere,int,,"Subject rates him/herself (sincere, one month after speeddates)."
+69,subject guesses_how_perceived_by_others ambition,int,,Subject's guesses how he/she is perceived by others (ambition).
+70,subject guesses_how_perceived_by_others attractive,int,,Subject's guesses how he/she is perceived by others (attractive).
+71,subject guesses_how_perceived_by_others funny,int,,Subject's guesses how he/she is perceived by others (funny).
+72,subject guesses_how_perceived_by_others intellect,int,,Subject's guesses how he/she is perceived by others (intellect).
+73,subject guesses_how_perceived_by_others sincere,int,,Subject's guesses how he/she is perceived by others (sincere).
+74,subject during date preference ambition,int,,"Subject's preference (ambition, halfway during speeddates)."
+75,subject during date preference attractive,int,,"Subject's preference (attractive, halfway during speeddates)."
+76,subject during date preference funny,int,,"Subject's preference (funny, halfway during speeddates)."
+77,subject during date preference intellect,int,,"Subject's preference (intellect, halfway during speeddates)."
+78,subject during date preference shared interests,int,,"Subject's preference (shared interests, halfway during speeddates)."
+79,subject during date preference sincere,int,,"Subject's preference (sincere, halfway during speeddates)."
+80,subject day after preference ambition,int,,"Subject's preference (ambition, one day after speeddates)."
+81,subject day after preference attractive,int,,"Subject's preference (attractive, one day after speeddates)."
+82,subject day after preference funny,int,,"Subject's preference (funny, one day after speeddates)."
+83,subject day after preference intellect,int,,"Subject's preference (intellect, one day after speeddates)."
+84,subject day after preference shared interests,int,,"Subject's preference (shared interests, one day after speeddates)."
+85,subject day after preference sincere,int,,"Subject's preference (sincere, one day after speeddates)."
+86,subject month after preference ambition,int,,"Subject's preference (ambition, one month after speeddates)."
+87,subject month after preference attractive,int,,"Subject's preference (attractive, one month after speeddates)."
+88,subject month after preference funny,int,,"Subject's preference (funny, one month after speeddates)."
+89,subject month after preference intellect,int,,"Subject's preference (intellect, one month after speeddates)."
+90,subject month after preference shared interests,int,,"Subject's preference (shared interests, one month after speeddates)."
+91,subject month after preference sincere,int,,"Subject's preference (sincere, one month after speeddates)."
+92,subject during date rating ambition,int,,Subject rating partner at night of the event (ambition).
+93,subject during date rating attractive,int,,Subject rating partner at night of the event (attractive).
+94,subject during date rating funny,int,,Subject rating partner at night of the event (funny).
+95,subject during date rating intellect,int,,Subject rating partner at night of the event (intellect).
+96,subject during date rating shared interests,int,,Subject rating partner at night of the event (shared interests).
+97,subject during date rating sincere,int,,Subject rating partner at night of the event (sincere).
+98,subject guesses opposite sex preference date ambition,int,,"Subject guesses the preference of the opposite sex, for a date (ambition)."
+99,subject guesses opposite sex preference date attractive,int,,"Subject guesses the preference of the opposite sex, for a date (attractive)."
+100,subject guesses opposite sex preference date funny,int,,"Subject guesses the preference of the opposite sex, for a date (funny)."
+101,subject guesses opposite sex preference date intellect,int,,"Subject guesses the preference of the opposite sex, for a date (intellect)."
+102,subject guesses opposite sex preference date shared interests,int,,"Subject guesses the preference of the opposite sex, for a date (shared interests)."
+103,subject guesses opposite sex preference date sincere,int,,"Subject guesses the preference of the opposite sex, for a date (sincere)."
+104,subject day after guesses opposite sex preference date ambition,int,,"Subject guesses the preference of the opposite sex, for a date (ambition, one day after speeddates)."
+105,subject day after guesses opposite sex preference date attractive,int,,"Subject guesses the preference of the opposite sex, for a date (attractive, one day after speeddates)."
+106,subject day after guesses opposite sex preference date funny,int,,"Subject guesses the preference of the opposite sex, for a date (funny, one day after speeddates)."
+107,subject day after guesses opposite sex preference date intellect,int,,"Subject guesses the preference of the opposite sex, for a date (intellect, one day after speeddates)."
+108,subject day after guesses opposite sex preference date shared interests,int,,"Subject guesses the preference of the opposite sex, for a date (shared interests, one day after speeddates)."
+109,subject day after guesses opposite sex preference date sincere,int,,"Subject guesses the preference of the opposite sex, for a date (sincere, one day after speeddates)."
+110,subject month after guesses opposite sex preference date ambition,int,,"Subject guesses the preference of the opposite sex, for a date (ambition, one month after speeddates)."
+111,subject month after guesses opposite sex preference date attractive,int,,"Subject guesses the preference of the opposite sex, for a date (attractive, one month after speeddates)."
+112,subject month after guesses opposite sex preference date funny,int,,"Subject guesses the preference of the opposite sex, for a date (funny, one month after speeddates)."
+113,subject month after guesses opposite sex preference date intellect,int,,"Subject guesses the preference of the opposite sex, for a date (intellect, one month after speeddates)."
+114,subject month after guesses opposite sex preference date shared interests,int,,"Subject guesses the preference of the opposite sex, for a date (shared interests, one month after speeddates)."
+115,subject month after guesses opposite sex preference date sincere,int,,"Subject guesses the preference of the opposite sex, for a date (sincere, one month after speeddates)."
+116,subject guesses fellow men women preference partner ambition,int,,"Subject guesses the preference of fellow men/women, for a date (ambition)."
+117,subject guesses fellow men women preference partner attractive,int,,"Subject guesses the preference of fellow men/women, for a date (attractive)."
+118,subject guesses fellow men women preference partner funny,int,,"Subject guesses the preference of fellow men/women, for a date (funny)."
+119,subject guesses fellow men women preference partner intellect,int,,"Subject guesses the preference of fellow men/women, for a date (intellect)."
+120,subject guesses fellow men women preference partner shared interests,int,,"Subject guesses the preference of fellow men/women, for a date (shared interests)."
+121,subject guesses fellow men women preference partner sincere,int,,"Subject guesses the preference of fellow men/women, for a date (sincere)."
+122,subject day after guesses fellow men women preference partner ambition,int,,"Subject guesses the preference of fellow men/women, for a date (ambition, one day after speeddates)."
+123,subject day after guesses fellow men women preference partner attractive,int,,"Subject guesses the preference of fellow men/women, for a date (attractive, one day after speeddates)."
+124,subject day after guesses fellow men women preference partner funny,int,,"Subject guesses the preference of fellow men/women, for a date (funny, one day after speeddates)."
+125,subject day after guesses fellow men women preference partner intellect,int,,"Subject guesses the preference of fellow men/women, for a date (intellect, one day after speeddates)."
+126,subject day after guesses fellow men women preference partner shared interests,int,,"Subject guesses the preference of fellow men/women, for a date (shared interests, one day after speeddates)."
+127,subject day after guesses fellow men women preference partner sincere,int,,"Subject guesses the preference of fellow men/women, for a date (sincere, one day after speeddates)."
+128,subject month after guesses fellow men women preference partner ambition,int,,"Subject guesses the preference of fellow men/women, for a date (ambition, one month after speeddates)."
+129,subject month after guesses fellow men women preference partner attractive,int,,"Subject guesses the preference of fellow men/women, for a date (attractive, one month after speeddates)."
+130,subject month after guesses fellow men women preference partner funny,int,,"Subject guesses the preference of fellow men/women, for a date (funny, one month after speeddates)."
+131,subject month after guesses fellow men women preference partner intellect,int,,"Subject guesses the preference of fellow men/women, for a date (intellect, one month after speeddates)."
+132,subject month after guesses fellow men women preference partner shared interests,int,,"Subject guesses the preference of fellow men/women, for a date (shared interests, one month after speeddates)."
+133,subject month after guesses fellow men women preference partner sincere,int,,"Subject guesses the preference of fellow men/women, for a date (sincere, one month after speeddates)."
+134,subject day after importance ambition,int,,"Subject's actual importance (actually used in decision making) of attribute (ambition, one day after speeddates)."
+135,subject day after importance attractive,int,,"Subject's actual importance (actually used in decision making) of attribute (attractive, one day after speeddates)."
+136,subject day after importance funny,int,,"Subject's actual importance (actually used in decision making) of attribute (funny, one day after speeddates)."
+137,subject day after importance intellect,int,,"Subject's actual importance (actually used in decision making) of attribute (intellect, one day after speeddates)."
+138,subject day after importance shared interests,int,,"Subject's actual importance (actually used in decision making) of attribute (shared interests, one day after speeddates)."
+139,subject day after importance sincere,int,,"Subject's actual importance (actually used in decision making) of attribute (sincere, one day after speeddates)."
+140,subject month after importance ambition,int,,"Subject's actual importance (actually used in decision making) of attribute (ambition, one month after speeddates)."
+141,subject month after importance attractive,int,,"Subject's actual importance (actually used in decision making) of attribute (attractive, one month after speeddates)."
+142,subject month after importance funny,int,,"Subject's actual importance (actually used in decision making) of attribute (funny, one month after speeddates)."
+143,subject month after importance intellect,int,,"Subject's actual importance (actually used in decision making) of attribute (intellect, one month after speeddates)."
+144,subject month after importance shared interests,int,,"Subject's actual importance (actually used in decision making) of attribute (shared interests, one month after speeddates)."
+145,subject month after importance sincere,int,,"Subject's actual importance (actually used in decision making) of attribute (sincere, one month after speeddates)."
+146,partner local id,int,,Partner's unique subject number within wave.
+147,partner preference ambition,int,,Partner's preference (ambition).
+148,partner preference attractive,int,,Partner's preference (attractive).
+149,partner preference funny,int,,Partner's preference (funny).
+150,partner preference intellect,int,,Partner's preference (intellect).
+151,partner preference shared interests,int,,Partner's preference (shared interests).
+152,partner preference sincere,int,,Partner's preference (sincere).
+153,partner during date rating ambition,int,,Partner rating subject at night of the event (ambition).
+154,partner during date rating attractive,int,,Partner rating subject at night of the event (attractive).
+155,partner during date rating funny,int,,Partner rating subject at night of the event (funny).
+156,partner during date rating intellect,int,,Partner rating subject at night of the event (intellect).
+157,partner during date rating shared interests,int,,Partner rating subject at night of the event (shared interests).
+158,partner during date rating sincere,int,,Partner rating subject at night of the event (sincere).
+159,wave nr,int,,Wave number corresponding to the day of the event.
+160,wave n people,int,,Number of people that met in wave.
+161,wave condition,String,,Condition.
+162,date subject decision,boolean,,Subject's decision at the night of the event.
+164,date interests correlate d,Bin,"discretization bins: [1/4: -0.83 - -0.02], (2/4: -0.02 - 0.21], (3/4: 0.21 - 0.43], (4/4: 0.43 - 0.91]",Correlation between subject's and Partner's ratings of interests.
+165,date age difference d,Bin,"discretization bins: [1/4: -32.0 - -3.0], [2/4: -2.0 - 0.0], [3/4: 1.0 - 3.0], [4/4: 4.0 - 32.0], subject age (int): Age of subject,subject age (int): Age of subject",(subject age) - (partner age)
+166,date age abs difference d,Bin,"discretization bins: [1/4: 0.0 - 1.0], [2/4: 2.0 - 3.0], [3/4: 4.0 - 5.0], [4/4: 6.0 - 32.0], subject age (int): Age of subject,subject age (int): Age of subject",|(subject age) - (partner age)|
+167,date subject younger,boolean,"subject age (int): Age of subject,partner age (int): subject age (int): Age of subject (ref(partner global id == subject global id) => subject age)",subject age  <  partner age
+168,date subject richer hometown,boolean,"subject hometown income (double): Median  income based on zipcode,partner hometown income (double): subject hometown income (double): Median  income based on zipcode (ref(partner global id == subject global id) => subject hometown income)",subject hometown income  >  partner hometown income
+169,date subject richer school,boolean,"subject school tuition (int): Tuition if subject school undergraduate is filled out,partner school tuition (int): subject school tuition (int): Tuition if subject school undergraduate is filled out (ref(partner global id == subject global id) => subject school tuition)",subject school tuition  >  partner school tuition
+170,date same field category,boolean,"subject field category (String): Field of study (category),partner field category (String): subject field category (String): Field of study (category) (ref(partner global id == subject global id) => subject field category)",subject field category  ==  partner field category
+171,date subject smarter school,boolean,"subject school median sat (int): Median SAT score of undergraduate school,partner school median sat (int): subject school median sat (int): Median SAT score of undergraduate school (ref(partner global id == subject global id) => subject school median sat)",subject school median sat  >  partner school median sat
+172,date same importance of race,boolean,"subject importance of race d (Bin): Subject's importance of partner being of the same racial/ethnic background? (discretization bins: [1/2: 0.0 - 3.0], [2/2: 4.0 - 10.0]),partner importance of race d (Bin): subject importance of race d (Bin): Subject's importance of partner being of the same racial/ethnic background? (discretization bins: [1/2: 0.0 - 3.0], [2/2: 4.0 - 10.0]) (ref(partner global id == subject global id) => subject importance of race d)",subject importance of race d  ==  partner importance of race d
+173,date same importance of religion,boolean,"subject importance of religion d (Bin): Subject's importance of partner being of the same religious background? (discretization bins: [1/2: 1.0 - 3.0], [2/2: 4.0 - 10.0]),partner importance of religion d (Bin): subject importance of religion d (Bin): Subject's importance of partner being of the same religious background? (discretization bins: [1/2: 1.0 - 3.0], [2/2: 4.0 - 10.0]) (ref(partner global id == subject global id) => subject importance of religion d)",subject importance of religion d  ==  partner importance of religion d
+174,date subject expects more interested in him her,boolean,"subject expected num interested in me (int): Subject's expected number of people interested in him or her (out of the 20),partner expected num interested in me (int): subject expected num interested in me (int): Subject's expected number of people interested in him or her (out of the 20) (ref(partner global id == subject global id) => subject expected num interested in me)",subject expected num interested in me  >  partner expected num interested in me
+175,subject global id,int,,Unique subject number.
+176,subject gender,String,,Gender.
+177,subject age d,Bin,"discretization bins: [1/4: 18.0 - 24.0], [2/4: 25.0 - 26.0], [3/4: 27.0 - 28.0], [4/4: 29.0 - 55.0]",Age of subject.
+178,subject race,String,,Subject's race.
+179,subject hometown income d,Bin,"discretization bins: [1/4: 8607.0 - 31516.0], (2/4: 31516.0 - 43185.0], (3/4: 43185.0 - 54303.0], (4/4: 54303.0 - 109031.0]",Median  income based on zipcode.
+180,subject field category,String,,Field of study (category).
+181,subject school tuition d,Bin,"discretization bins: [1/4: 2406.0 - 15162.0], [2/4: 15163.0 - 25020.0], [3/4: 25021.0 - 26562.0], [4/4: 26563.0 - 34300.0]",Tuition if subject school undergraduate is filled out.
+182,subject school median sat d,Bin,"discretization bins: [1/4: 914.0 - 1214.0], [2/4: 1215.0 - 1310.0], [3/4: 1311.0 - 1400.0], [4/4: 1401.0 - 1490.0]",Median SAT score of undergraduate school.
+183,subject ambition d,Bin,"discretization bins: [1/4: 2.0 - 7.0], [2/4: 8.0 - 8.0], [3/4: 9.0 - 9.0], [4/4: 10.0 - 10.0]",Subject rates him/herself (ambition).
+184,subject attractive d,Bin,"discretization bins: [1/4: 2.0 - 6.0], [2/4: 7.0 - 7.0], [3/4: 8.0 - 8.0], [4/4: 9.0 - 10.0]",Subject rates him/herself (attractive).
+185,subject funny d,Bin,"discretization bins: [1/4: 2.0 - 7.0], [2/4: 8.0 - 8.0], [3/4: 9.0 - 9.0], [4/4: 10.0 - 10.0]",Subject rates him/herself (funny).
+186,subject intellect d,Bin,"discretization bins: [1/4: 3.0 - 8.0], [3/4: 9.0 - 9.0], [4/4: 10.0 - 10.0]",Subject rates him/herself (intellect).
+187,subject sincere d,Bin,"discretization bins: [1/4: 2.0 - 8.0], [3/4: 9.0 - 9.0], [4/4: 10.0 - 10.0]",Subject rates him/herself (sincere).
+188,subject preference ambition d,Bin,"discretization bins: [1/4: 0.0 - 5.0], [2/4: 6.0 - 10.0], [3/4: 11.0 - 15.0], [4/4: 16.0 - 53.0]",Subject's preference (ambition).
+189,subject preference attractive d,Bin,"discretization bins: [1/4: 0.0 - 15.0], [2/4: 16.0 - 20.0], [3/4: 21.0 - 25.0], [4/4: 26.0 - 100.0]",Subject's preference (attractive).
+190,subject preference funny d,Bin,"discretization bins: [1/4: 0.0 - 15.0], [2/4: 16.0 - 18.0], [3/4: 19.0 - 20.0], [4/4: 21.0 - 50.0]",Subject's preference (funny).
+191,subject preference intellect d,Bin,"discretization bins: [1/4: 0.0 - 17.0], [2/4: 18.0 - 20.0], [3/4: 21.0 - 24.0], [4/4: 25.0 - 50.0]",Subject's preference (intellect).
+192,subject preference sincere d,Bin,"discretization bins: [1/4: 0.0 - 15.0], [2/4: 16.0 - 18.0], [3/4: 19.0 - 20.0], [4/4: 21.0 - 60.0]",Subject's preference (sincere).
+193,subject preference shared interests d,Bin,"discretization bins: [1/4: 0.0 - 10.0], [2/4: 11.0 - 11.0], [3/4: 12.0 - 16.0], [4/4: 17.0 - 30.0]",Subject's preference (shared interests).
+194,partner global id,int,,Partner's unique subject number.
+195,partner gender,String,ref(partner global id == subject global id) => subject gender,subject gender (String): Gender
+196,partner age d,Bin,ref(partner global id == subject global id) => subject age d,"subject age d (Bin): Age of subject (discretization bins: [1/4: 18.0 - 24.0], [2/4: 25.0 - 26.0], [3/4: 27.0 - 28.0], [4/4: 29.0 - 55.0])"
+197,partner race,String,ref(partner global id == subject global id) => subject race,subject race (String): Subject's race
+198,partner hometown income d,Bin,ref(partner global id == subject global id) => subject hometown income d,"subject hometown income d (Bin): Median  income based on zipcode (discretization bins: [1/4: 8607.0 - 31516.0], (2/4: 31516.0 - 43185.0], (3/4: 43185.0 - 54303.0], (4/4: 54303.0 - 109031.0])"
+199,partner field category,String,ref(partner global id == subject global id) => subject field category,subject field category (String): Field of study (category)
+200,partner school tuition d,Bin,ref(partner global id == subject global id) => subject school tuition d,"subject school tuition d (Bin): Tuition if subject school undergraduate is filled out (discretization bins: [1/4: 2406.0 - 15162.0], [2/4: 15163.0 - 25020.0], [3/4: 25021.0 - 26562.0], [4/4: 26563.0 - 34300.0])"
+201,partner school median sat d,Bin,ref(partner global id == subject global id) => subject school median sat d,"subject school median sat d (Bin): Median SAT score of undergraduate school (discretization bins: [1/4: 914.0 - 1214.0], [2/4: 1215.0 - 1310.0], [3/4: 1311.0 - 1400.0], [4/4: 1401.0 - 1490.0])"
+202,partner ambition d,Bin,ref(partner global id == subject global id) => subject ambition d,"subject ambition d (Bin): Subject rates him/herself (ambition) (discretization bins: [1/4: 2.0 - 7.0], [2/4: 8.0 - 8.0], [3/4: 9.0 - 9.0], [4/4: 10.0 - 10.0])"
+203,partner attractive d,Bin,ref(partner global id == subject global id) => subject attractive d,"subject attractive d (Bin): Subject rates him/herself (attractive) (discretization bins: [1/4: 2.0 - 6.0], [2/4: 7.0 - 7.0], [3/4: 8.0 - 8.0], [4/4: 9.0 - 10.0])"
+204,partner funny d,Bin,ref(partner global id == subject global id) => subject funny d,"subject funny d (Bin): Subject rates him/herself (funny) (discretization bins: [1/4: 2.0 - 7.0], [2/4: 8.0 - 8.0], [3/4: 9.0 - 9.0], [4/4: 10.0 - 10.0])"
+205,partner intellect d,Bin,ref(partner global id == subject global id) => subject intellect d,"subject intellect d (Bin): Subject rates him/herself (intellect) (discretization bins: [1/4: 3.0 - 8.0], [3/4: 9.0 - 9.0], [4/4: 10.0 - 10.0])"
+206,partner sincere d,Bin,ref(partner global id == subject global id) => subject sincere d,"subject sincere d (Bin): Subject rates him/herself (sincere) (discretization bins: [1/4: 2.0 - 8.0], [3/4: 9.0 - 9.0], [4/4: 10.0 - 10.0])"
+207,partner preference ambition d,Bin,ref(partner global id == subject global id) => subject preference ambition d,"subject preference ambition d (Bin): Subject's preference (ambition) (discretization bins: [1/4: 0.0 - 5.0], [2/4: 6.0 - 10.0], [3/4: 11.0 - 15.0], [4/4: 16.0 - 53.0])"
+208,partner preference attractive d,Bin,ref(partner global id == subject global id) => subject preference attractive d,"subject preference attractive d (Bin): Subject's preference (attractive) (discretization bins: [1/4: 0.0 - 15.0], [2/4: 16.0 - 20.0], [3/4: 21.0 - 25.0], [4/4: 26.0 - 100.0])"
+209,partner preference funny d,Bin,ref(partner global id == subject global id) => subject preference funny d,"subject preference funny d (Bin): Subject's preference (funny) (discretization bins: [1/4: 0.0 - 15.0], [2/4: 16.0 - 18.0], [3/4: 19.0 - 20.0], [4/4: 21.0 - 50.0])"
+210,partner preference intellect d,Bin,ref(partner global id == subject global id) => subject preference intellect d,"subject preference intellect d (Bin): Subject's preference (intellect) (discretization bins: [1/4: 0.0 - 17.0], [2/4: 18.0 - 20.0], [3/4: 21.0 - 24.0], [4/4: 25.0 - 50.0])"
+211,partner preference sincere d,Bin,ref(partner global id == subject global id) => subject preference sincere d,"subject preference sincere d (Bin): Subject's preference (sincere) (discretization bins: [1/4: 0.0 - 15.0], [2/4: 16.0 - 18.0], [3/4: 19.0 - 20.0], [4/4: 21.0 - 60.0])"
+212,partner preference shared interests d,Bin,ref(partner global id == subject global id) => subject preference shared interests d,"subject preference shared interests d (Bin): Subject's preference (shared interests) (discretization bins: [1/4: 0.0 - 10.0], [2/4: 11.0 - 11.0], [3/4: 12.0 - 16.0], [4/4: 17.0 - 30.0])"

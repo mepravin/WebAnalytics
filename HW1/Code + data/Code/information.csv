@@ -1,0 +1,199 @@
+,0,1,2,3,0
+id,0.0,8377.0,4188.5,2418.6646108958553,0.0
+date nr,1.0,22.0,8.927667701121987,5.4770094395976745,1.0
+date position,1.0,22.0,9.042730962043446,5.514938986539947,2.0
+date same race,0.0,True,0.3957985199331583,0.489050712103958,False
+date subject met before,0.0,True,0.04390243902439024,0.204890862868675,False
+date partner met before,0.0,True,0.043832185347526614,0.2047343992579771,False
+date subject prob receive yes,0.0,10.0,5.207522617424712,2.129564809713651,5.0
+date partner prob receive yes,0.0,10.0,5.208250620347394,2.1293539684226848,5.0
+date subject rates partner,0.0,10.0,6.136765790120423,1.8430749080880808,7.0
+date partner rates subject,0.0,10.0,6.137180118110236,1.8430493296672616,7.0
+date partner decision,0.0,True,0.41955120553831465,0.49351500736700754,False
+date match,0.0,True,0.16471711625686322,0.37094718229514456,False
+subject local id,1.0,22.0,8.960248298913692,5.491329480261166,1.0
+subject gender id,1.0,44.0,17.327166388159466,10.940734988903447,1.0
+subject position_start,1.0,22.0,9.295774647887324,5.650199397842724,2.0
+subject hometown,inf,working,,,New York
+subject hometown zipcode,0.0,9971200.0,75423.22286026798,525492.4428390007,0.0
+subject field,inf,working,,,Business
+subject school undergraduate,inf,wellesley college,,,UC Berkeley
+subject intended career,inf,writer/teacher,,,Finance
+subject intended career category,inf,Undecided,,,Academic/Research
+subject importance of race,0.0,10.0,3.7847933485962164,2.845707759718648,1.0
+subject importance of religion,1.0,10.0,3.651644776479094,2.8052370077509434,1.0
+subject date frequency,inf,Twice a week,,,Several times a year
+subject go out frequency,inf,Twice a week,,,Twice a week
+subject speeddate reason,inf,To say I did it,,,Seemed like a fun night out
+subject expected_happy,1.0,10.0,5.534130723692159,1.7340590702677865,5.0
+subject month after call,0.0,21.0,0.7808253648716659,1.6116942145859372,0.0
+subject month after called,0.0,9.0,0.9816305988928032,1.3821394092199222,0.0
+subject n_matches_estimation,0.0,18.0,3.2145732130464957,2.440925295508888,2.0
+subject interest art,0.0,10.0,6.714543920954332,2.2634071920946828,8.0
+subject interest clubbing,0.0,10.0,5.745993493191951,2.50221772647641,8.0
+subject interest concerts,0.0,10.0,6.8254006506808045,2.1562826292943464,7.0
+subject interest dining,1.0,10.0,7.783829377033378,1.754867551472235,8.0
+subject interest exercise,1.0,10.0,6.245812748523918,2.418857734464173,8.0
+subject interest gaming,0.0,14.0,3.881190504880106,2.6205073535111847,1.0
+subject interest hiking,0.0,10.0,5.737076756235691,2.5702072818066073,8.0
+subject interest movies,0.0,10.0,7.919628870948307,1.7009274141124773,8.0
+subject interest museums,0.0,10.0,6.985781419448126,2.052231976825969,7.0
+subject interest music,1.0,10.0,7.851066393541391,1.7918268038683645,10.0
+subject interest reading,1.0,13.0,7.678515483793228,2.006565486274055,9.0
+subject interest shopping,1.0,10.0,5.631280877214122,2.6089127203843323,7.0
+subject interest sports,1.0,10.0,6.425231955657308,2.619023891580917,8.0
+subject interest theater,0.0,10.0,6.776117604530667,2.2351523039360317,7.0
+subject interest tv,1.0,10.0,5.304133028075672,2.5291353179281533,6.0
+subject interest watching_sports,1.0,10.0,4.575491023014821,2.8018744989544415,1.0
+subject interest yoga,0.0,10.0,4.339197493673937,2.7176116791714975,1.0
+subject judgement on date length,inf,Too much,,,Too little
+subject judgement on n dates,inf,Too much,,,Too much
+subject satisfied_with dates,1.0,10.0,5.71194094813369,1.8209004361326646,6.0
+subject during date ambition,2.0,10.0,7.58925,1.7931364343150291,9.0
+subject during date attractive,3.0,10.0,7.2125,1.4159254787029965,8.0
+subject during date funny,3.0,10.0,7.6925,1.6268390828076196,8.0
+subject during date intellect,4.0,10.0,8.2585,1.1802652271848162,8.0
+subject during date sincere,1.0,10.0,8.08325,1.4554549202074893,8.0
+subject guesses_how_perceived_by_others ambition,1.0,10.0,7.617611088463106,1.773093635472839,9.0
+subject guesses_how_perceived_by_others attractive,2.0,10.0,6.941907867916837,1.4986534045548872,7.0
+subject guesses_how_perceived_by_others funny,2.0,10.0,7.426212800652262,1.77912857260129,8.0
+subject guesses_how_perceived_by_others intellect,3.0,10.0,8.284345699143906,1.2836569947863268,8.0
+subject guesses_how_perceived_by_others sincere,1.0,10.0,7.927231960864248,1.6270535090495977,8.0
+subject during date preference ambition,0.0,24.0,11.17578125,5.527938530374989,10.0
+subject during date preference attractive,3.0,95.0,20.802978515625,12.963214637551168,20.0
+subject during date preference funny,1.0,40.0,15.298583984375,5.375834132672318,20.0
+subject during date preference intellect,0.0,40.0,17.253173828125,6.601780548296925,20.0
+subject during date preference shared interests,0.0,30.0,12.4775390625,5.926450582465888,10.0
+subject during date preference sincere,0.0,50.0,15.4501953125,6.926825627281015,20.0
+subject day after preference ambition,0.0,22.0,9.930724909553799,5.685484731846053,10.0
+subject day after preference attractive,5.0,85.0,26.22538616521155,14.383917120784966,20.0
+subject day after preference funny,0.0,50.0,17.66849792308723,6.127256134527273,20.0
+subject day after preference intellect,0.0,40.0,17.831033096609943,6.541498282262714,20.0
+subject day after preference shared interests,0.0,35.0,12.77207557282594,6.6552275049396785,10.0
+subject day after preference sincere,0.0,50.0,15.874179284470053,6.661261197664909,20.0
+subject month after preference ambition,0.0,30.0,10.91343734272773,5.915339933217859,10.0
+subject month after preference attractive,0.0,80.0,24.399849018621037,13.707340201927563,20.0
+subject month after preference funny,0.0,30.0,16.251635631605435,5.164945163041415,20.0
+subject month after preference intellect,0.0,45.0,19.433064921992955,6.124796935034379,20.0
+subject month after preference shared interests,0.0,55.0,12.712883744338198,6.563316284659509,10.0
+subject month after preference sincere,0.0,65.0,16.60971313537997,7.47671383053704,20.0
+subject during date rating ambition,0.0,10.0,6.777850247847639,1.7942678524035613,7.0
+subject during date rating attractive,0.0,10.0,6.1909246575342465,1.9508005605035708,6.0
+subject during date rating funny,0.0,10.0,6.401096163428002,1.9539506910545006,7.0
+subject during date rating intellect,0.0,10.0,7.369339272457313,1.550395930914289,8.0
+subject during date rating shared interests,0.0,10.0,5.475174394747641,2.1569486272656153,5.0
+subject during date rating sincere,0.0,10.0,7.175410443155166,1.740361171550763,8.0
+subject guesses opposite sex preference date ambition,0.0,50.0,11.746893473277838,6.886218317451554,10.0
+subject guesses opposite sex preference date attractive,0.0,100.0,30.372575009037234,16.244034068364268,20.0
+subject guesses opposite sex preference date funny,0.0,50.0,18.43053379925292,6.5786736553641845,20.0
+subject guesses opposite sex preference date intellect,0.0,40.0,14.427159898782985,6.269522108320266,10.0
+subject guesses opposite sex preference date shared interests,0.0,30.0,11.870430691277598,6.17443550327293,10.0
+subject guesses opposite sex preference date sincere,0.0,50.0,13.278226292324376,6.980109601023621,10.0
+subject day after guesses opposite sex preference date ambition,0.0,50.0,11.93038961038961,6.316143136364697,10.0
+subject day after guesses opposite sex preference date attractive,0.0,85.0,29.35151515151515,14.539260563083575,30.0
+subject day after guesses opposite sex preference date funny,0.0,40.0,17.966406926406925,6.100126951947744,20.0
+subject day after guesses opposite sex preference date intellect,0.0,31.0,13.961212121212121,5.396879615114654,10.0
+subject day after guesses opposite sex preference date shared interests,0.0,30.0,12.894891774891775,5.613322259310001,10.0
+subject day after guesses opposite sex preference date sincere,0.0,40.0,13.906666666666666,6.174389451119842,10.0
+subject month after guesses opposite sex preference date ambition,0.0,50.0,9.526191280838122,6.4031168504765725,10.0
+subject month after guesses opposite sex preference date attractive,5.0,80.0,24.970936127069955,17.00766939623789,20.0
+subject month after guesses opposite sex preference date funny,0.0,40.0,14.95910780669145,7.935508563483859,20.0
+subject month after guesses opposite sex preference date intellect,0.0,60.0,11.952686718485975,7.010650068398617,10.0
+subject month after guesses opposite sex preference date shared interests,0.0,45.0,11.966269841269842,7.012067101563345,10.0
+subject month after guesses opposite sex preference date sincere,0.0,50.0,10.923284893545116,6.226282535285975,10.0
+subject guesses fellow men women preference partner ambition,0.0,50.0,9.780089382031129,6.998427553131055,10.0
+subject guesses fellow men women preference partner attractive,5.0,95.0,26.394359685621822,16.297045309334532,30.0
+subject guesses fellow men women preference partner funny,0.0,45.0,15.566805362921867,7.328256482663861,20.0
+subject guesses fellow men women preference partner intellect,0.0,35.0,12.636307597472646,6.717476401154463,10.0
+subject guesses fellow men women preference partner shared interests,0.0,40.0,11.0148445956394,6.060150280533016,10.0
+subject guesses fellow men women preference partner sincere,0.0,35.0,11.071505624903683,6.659232641662066,10.0
+subject day after guesses fellow men women preference partner ambition,0.0,35.0,9.342510822510823,5.856329098332802,10.0
+subject day after guesses fellow men women preference partner attractive,6.0,100.0,26.806233766233767,16.40283593160981,30.0
+subject day after guesses fellow men women preference partner funny,0.0,50.0,15.163809523809524,7.290106939870513,20.0
+subject day after guesses fellow men women preference partner intellect,0.0,40.0,12.103030303030303,5.990607140542042,10.0
+subject day after guesses fellow men women preference partner shared interests,0.0,40.0,11.320865800865802,6.296155320267858,10.0
+subject day after guesses fellow men women preference partner sincere,0.0,35.0,11.929177489177489,6.401555729594582,10.0
+subject month after guesses fellow men women preference partner ambition,0.0,40.0,9.207502534640081,6.385851962629391,10.0
+subject month after guesses fellow men women preference partner attractive,0.0,80.0,25.610341331530922,17.47713394132441,20.0
+subject month after guesses fellow men women preference partner funny,0.0,30.0,14.276782696857046,6.927869337213797,20.0
+subject month after guesses fellow men women preference partner intellect,0.0,30.0,11.524839472794863,6.004222210004339,10.0
+subject month after guesses fellow men women preference partner shared interests,0.0,45.0,11.253801960121663,6.516178304164659,10.0
+subject month after guesses fellow men women preference partner sincere,0.0,40.0,10.751267320040554,5.740351364585139,10.0
+subject day after importance ambition,0.0,20.0,7.28695652173913,6.1251874155649695,0.0
+subject day after importance attractive,10.0,80.0,32.819556451612904,17.15526969977008,30.0
+subject day after importance funny,0.0,50.0,18.86844758064516,8.53596304246356,20.0
+subject day after importance intellect,0.0,50.0,15.293850806451612,7.292867942998037,10.0
+subject day after importance shared interests,0.0,40.0,12.156028368794326,8.24190592708403,10.0
+subject day after importance sincere,0.0,40.0,13.529923273657289,7.977482367097056,10.0
+subject month after importance ambition,0.0,30.0,7.82390873015873,6.100501854603278,10.0
+subject month after importance attractive,0.0,80.0,31.330357142857142,17.55154029765697,20.0
+subject month after importance funny,0.0,40.0,16.418154761904763,7.231324729109009,20.0
+subject month after importance intellect,0.0,45.0,16.67956349206349,7.8800876044012815,20.0
+subject month after importance shared interests,0.0,55.0,12.207837301587302,8.615984803221703,10.0
+subject month after importance sincere,0.0,60.0,15.654265873015873,9.336287520835475,20.0
+partner local id,1.0,22.0,8.96359513010265,5.491068382580494,1.0
+partner preference ambition,0.0,53.0,10.690001209043647,6.1299822477653825,10.0
+partner preference attractive,0.0,100.0,22.50573048618651,12.566080056168241,20.0
+partner preference funny,0.0,50.0,17.46473429951691,6.081816278028949,20.0
+partner preference intellect,0.0,50.0,20.27059958981783,6.784304766024727,20.0
+partner preference shared interests,0.0,30.0,11.853679233846528,6.365812457102209,10.0
+partner preference sincere,0.0,60.0,17.39582579321993,7.044418293868698,20.0
+partner during date rating ambition,0.0,10.0,6.778735632183908,1.7942930853539123,7.0
+partner during date rating attractive,0.0,11.0,6.191403379867745,1.9510807380027495,6.0
+partner during date rating funny,0.0,11.0,6.401097530556249,1.9543266317267696,7.0
+partner during date rating intellect,0.0,10.0,7.370044598612488,1.5504435512277963,8.0
+partner during date rating shared interests,0.0,10.0,5.475486168173103,2.15674985226146,5.0
+partner during date rating sincere,0.0,10.0,7.175503646026449,1.7406215171848325,8.0
+wave nr,1.0,21.0,11.350919073764622,5.995903041209956,21.0
+wave n people,5.0,22.0,16.872045834328002,4.3584584542265095,18.0
+wave condition,inf,limited choice,,,extensive choice
+date subject decision,0.0,True,0.41990928622582957,0.49357325237122884,False
+date interests correlate d,inf,[1/4: -0.83 - 0.91],,,[1/4: -0.83 - 0.91]
+date age difference d,inf,[4/4: 4.0 - 32.0 (9.0)],,,[2/4: -2.0 - 0.0 (-1.0)]
+date age abs difference d,inf,[4/4: 6.0 - 32.0 (9.0)],,,[1/4: 0.0 - 1.0 (1.0)]
+date subject younger,0.0,True,0.4589400811649558,0.49834097305884867,False
+date subject richer hometown,0.0,True,0.3807591310575316,0.48560247268832596,False
+date subject richer school,0.0,True,0.27667701121986155,0.44738208806302515,False
+date same field category,0.0,True,0.11458582000477441,0.31854045442433293,False
+date subject smarter school,0.0,True,0.25638577226068276,0.4366633337467242,False
+date same importance of race,0.0,True,0.5177846741465744,0.49971342910454936,True
+date same importance of religion,0.0,True,0.5053712103127238,0.5000009902742882,True
+date subject expects more interested in him her,0.0,True,0.10109811410837909,0.3014765892413453,False
+subject global id,1.0,552.0,283.675936977799,158.58336657825635,509.0
+subject gender,inf,male,,,male
+subject age d,inf,[4/4: 29.0 - 55.0 (55.0)],,,[3/4: 27.0 - 28.0 (27.0)]
+subject race,inf,Other,,,European/Caucasian-American
+subject hometown income d,inf,[1/4: 8607.0 - 31516.0 (8607.0)],,,[1/4: 8607.0 - 109031.0]
+subject field category,inf,Undergrad/undecided,,,Business/Economy/Finance
+subject school tuition d,inf,[4/4: 26563.0 - 34300.0 (34300.0)],,,[1/4: 2406.0 - 34300.0]
+subject school median sat d,inf,[4/4: 1401.0 - 1490.0 (1490.0)],,,[1/4: 914.0 - 1490.0]
+subject ambition d,inf,[4/4: 10.0 - 10.0 (10.0)],,,[2/4: 8.0 - 8.0 (8.0)]
+subject attractive d,inf,[4/4: 9.0 - 10.0 (9.0)],,,[2/4: 7.0 - 7.0 (7.0)]
+subject funny d,inf,[4/4: 10.0 - 10.0 (10.0)],,,[2/4: 8.0 - 8.0 (8.0)]
+subject intellect d,inf,[4/4: 10.0 - 10.0 (10.0)],,,[1/4: 3.0 - 8.0 (8.0)]
+subject sincere d,inf,[4/4: 10.0 - 10.0 (10.0)],,,[3/4: 9.0 - 9.0 (9.0)]
+subject preference ambition d,inf,[4/4: 16.0 - 53.0 (53.0)],,,[2/4: 6.0 - 10.0 (10.0)]
+subject preference attractive d,inf,[4/4: 26.0 - 100.0 (95.0)],,,[2/4: 16.0 - 20.0 (20.0)]
+subject preference funny d,inf,[4/4: 21.0 - 50.0 (50.0)],,,[3/4: 19.0 - 20.0 (20.0)]
+subject preference intellect d,inf,[4/4: 25.0 - 50.0 (50.0)],,,[2/4: 18.0 - 20.0 (20.0)]
+subject preference sincere d,inf,[4/4: 21.0 - 60.0 (60.0)],,,[3/4: 19.0 - 20.0 (20.0)]
+subject preference shared interests d,inf,[4/4: 17.0 - 30.0 (30.0)],,,[1/4: 0.0 - 10.0 (10.0)]
+partner global id,1.0,552.0,283.86376673040155,158.58489888970843,509.0
+partner gender,inf,male,,,female
+partner age d,inf,[4/4: 29.0 - 55.0 (55.0)],,,[3/4: 27.0 - 28.0 (27.0)]
+partner race,inf,Other,,,European/Caucasian-American
+partner hometown income d,inf,[1/4: 8607.0 - 31516.0 (8607.0)],,,[1/4: 8607.0 - 109031.0]
+partner field category,inf,Undergrad/undecided,,,Business/Economy/Finance
+partner school tuition d,inf,[4/4: 26563.0 - 34300.0 (34300.0)],,,[1/4: 2406.0 - 34300.0]
+partner school median sat d,inf,[4/4: 1401.0 - 1490.0 (1490.0)],,,[1/4: 914.0 - 1490.0]
+partner ambition d,inf,[4/4: 10.0 - 10.0 (10.0)],,,[2/4: 8.0 - 8.0 (8.0)]
+partner attractive d,inf,[4/4: 9.0 - 10.0 (9.0)],,,[2/4: 7.0 - 7.0 (7.0)]
+partner funny d,inf,[4/4: 10.0 - 10.0 (10.0)],,,[2/4: 8.0 - 8.0 (8.0)]
+partner intellect d,inf,[4/4: 10.0 - 10.0 (10.0)],,,[1/4: 3.0 - 8.0 (8.0)]
+partner sincere d,inf,[4/4: 10.0 - 10.0 (10.0)],,,[3/4: 9.0 - 9.0 (9.0)]
+partner preference ambition d,inf,[4/4: 16.0 - 53.0 (53.0)],,,[2/4: 6.0 - 10.0 (10.0)]
+partner preference attractive d,inf,[4/4: 26.0 - 100.0 (95.0)],,,[2/4: 16.0 - 20.0 (20.0)]
+partner preference funny d,inf,[4/4: 21.0 - 50.0 (50.0)],,,[3/4: 19.0 - 20.0 (20.0)]
+partner preference intellect d,inf,[4/4: 25.0 - 50.0 (50.0)],,,[2/4: 18.0 - 20.0 (20.0)]
+partner preference sincere d,inf,[4/4: 21.0 - 60.0 (60.0)],,,[3/4: 19.0 - 20.0 (20.0)]
+partner preference shared interests d,inf,[4/4: 17.0 - 30.0 (30.0)],,,[1/4: 0.0 - 10.0 (10.0)]
