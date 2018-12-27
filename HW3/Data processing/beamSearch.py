@@ -1,8 +1,8 @@
 from math import log
 from numpy import array
 
-# Beam Search on data, return k best solutions
-def BeamSearch(data, k):
+# Beam Search on data, return q best solutions
+def BeamSearch(data, q):
     # Create empty list of sequences
     # The 1.0 is there since we multiply scores, so the first instance is not affected by our initial value
     resultSequences = [[list(), 1.0]]
@@ -27,8 +27,8 @@ def BeamSearch(data, k):
                 allCandidates.append(candidate)
         # Order all candidates by score (lowest score first)
         ordered = sorted(allCandidates, key=lambda tup: tup[1])
-        # Select k best
-        resultSequences = ordered[:k]
+        # Select q best
+        resultSequences = ordered[:q]
     return resultSequences
 
 # Example: define a sequence of 10 words over a vocab of 5 words (A-E)
@@ -44,7 +44,7 @@ data = [[0.1, 0.2, 0.3, 0.4, 0.5],
         [0.1, 0.2, 0.3, 0.4, 0.5],
         [0.5, 0.4, 0.3, 0.2, 0.1]]
 data = array(data)
-# Give best sequence with k=5
+# Give best sequence with q=5
 result = BeamSearch(data, 5)
 # Print(result)
 for seq in result:
