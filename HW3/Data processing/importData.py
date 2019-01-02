@@ -15,18 +15,21 @@ def formatValue(data):
     value = data
 
     if value == "TRUE":
-        value = 1
+        value = True
 
     if value == "FALSE":
-        value = 0
+        value = False
 
     if value == "Yes":
-        value = 1
+        value = True
 
     if value == "No":
-        value = 0
+        value = False
 
     if value == "":
+        value = "null"
+
+    if value == "unknown":
         value = "null"
 
     try:
@@ -48,22 +51,22 @@ visit_id = "id"
 
 visit_columns = list()
 
-visit_columns.append("\ufeffScreen Resolution")
+##visit_columns.append("\ufeffScreen Resolution")
 visit_columns.append("Browser")
 # visit_columns.append("Browser Version")
 visit_columns.append("Device Type")
-visit_columns.append("Device")
+##visit_columns.append("Device")
 visit_columns.append("OS")
-visit_columns.append("OS Version")
+# visit_columns.append("OS Version")
 # visit_columns.append("User Agent") Deleted because redundant information
 # visit_columns.append("Traffic Source")
 visit_columns.append("Returning Visitor")
-visit_columns.append("Hit Time")
+# visit_columns.append("Hit Time")
 visit_columns.append("User Language")
 # visit_columns.append("URL")
 # visit_columns.append("Referring URL")
-visit_columns.append("City")
-# visit_columns.append("Region")
+# visit_columns.append("City")
+##visit_columns.append("Region")
 visit_columns.append("Country")
 visit_columns.append("Combination Id")
 visit_columns.append("Converted")
@@ -90,18 +93,16 @@ with open('data-delimited.csv', 'r', encoding='utf-8') as csvfile:
             value = formatValue(row[columnIndexes[name]])
             readRow.append(value)
         if "null" in readRow:
-            if readRow[5] == "null" and "Windows" in readRow[4]:
-                value = readRow[5][8:]
-                readRow[4] = "Windows"
-                readRow[5] = value
-            if readRow[5] == "null" and "Linux" in readRow[4]:
-                readRow[5] = 0
-            if readRow[5] == "null" and "Ubuntu" in readRow[4]:
-                readRow[5] = 0
+            # TODO change to 4
+            if "Windows" in readRow[2]:
+                readRow[2] = "Windows"
 
         if "null" not in readRow:
-            readRow[5] = str(readRow[5])
-            readRow[11] = "A" if readRow[11] == 1 else "B"
+            #TODO change to 10
+            #1 is True = B, #0 is False = A
+            readRow[3] = True if readRow[3] == 1 else False
+            readRow[6] = True if readRow[6] == 1 else False
+            readRow[7] = True if readRow[7] == 1 else False
             visit.append(readRow)
         i += 1
 
