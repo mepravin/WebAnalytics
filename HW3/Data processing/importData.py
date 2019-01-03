@@ -9,24 +9,41 @@ visit = list()
 # All columns with name in visit
 visit_columns = list()
 
-# #visit_columns.append("\ufeffScreen Resolution")
+# string - 0
+visit_columns.append("\ufeffScreen Resolution")
+# string - 1
 visit_columns.append("Browser")
 # visit_columns.append("Browser Version")
+
+# string - 2
 visit_columns.append("Device Type")
-# #visit_columns.append("Device")
+# string - 3
+visit_columns.append("Device")
+# string - 4
 visit_columns.append("OS")
 # visit_columns.append("OS Version")
 # visit_columns.append("User Agent") Deleted because redundant information
 # visit_columns.append("Traffic Source")
+
+# boolean - 5
 visit_columns.append("Returning Visitor")
 # visit_columns.append("Hit Time")
+
+# string - 6
 visit_columns.append("User Language")
 # visit_columns.append("URL")
 # visit_columns.append("Referring URL")
 # visit_columns.append("City")
-# #visit_columns.append("Region")
+
+# string - 7
+visit_columns.append("Region")
+
+# string - 8
 visit_columns.append("Country")
+
+#boolean - 9
 visit_columns.append("Combination Id")
+#boolean - 10
 visit_columns.append("Converted")
 
 # A dictionary with the indices of the columns
@@ -82,27 +99,24 @@ with open('data-delimited.csv', 'r', encoding='utf-8') as csv_file:
         for name in visit_columns:
             value = formatValue(row[columnIndexes[name]])
             readRow.append(value)
-        # TODO: delete
-        readRow.append(i % 1210)
-
         if "null" not in readRow:
-            # TODO change to 10
             # 1 is True = B, #0 is False = A
             readRow[0] = str(readRow[0])
             readRow[1] = str(readRow[1])
             readRow[2] = str(readRow[2])
-            if "Windows" in readRow[2]:
-                readRow[2] = "Windows"
-            readRow[3] = True if readRow[3] == 1 else False
+            readRow[3] = str(readRow[3])
+            if "Windows" in readRow[4]:
+                 readRow[4] = "Windows"
             readRow[4] = str(readRow[4])
-            readRow[5] = str(readRow[5])
-            readRow[6] = True if readRow[6] == 1 else False
-            readRow[7] = True if readRow[7] == 1 else False
+            readRow[5] = True if readRow[5] == 1 else False
+            readRow[6] = str(readRow[6])
+            readRow[7] = str(readRow[7])
+            readRow[8] = str(readRow[8])
+            readRow[9] = True if readRow[9] == 1 else False
+            readRow[10] = True if readRow[10] == 1 else False
 
             visit.append(readRow)
         i += 1
-    visit_columns.append("counter")
-
 
 # Save data in new csv file
 # with open('data_file.csv', mode='wb') as csvfile:

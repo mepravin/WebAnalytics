@@ -8,6 +8,22 @@ amount_of_definitions = list()
 targets = list()
 descriptors = list()
 
+# !!!User can define the minimum set size of the result (constraints), the width, the depth, the amount of bins and
+# the amount of results
+minimum_set_size = 20
+width = 15
+depth = 3
+bins = 5
+result_amount = 8
+
+# Define the data and the column names. Important is that a column should be either binary, numeric or nominal.
+# It cannot be a combination
+data = importData.get_data()
+# The names of the columns.
+column_names = importData.get_column_names()
+
+
+
 
 ''' 
 Class which represents the priority queue where a high priority represents a better quality
@@ -115,6 +131,7 @@ def createNumericalData(data_to_enumerate):
                 if col not in column_definition_list:
                     if col:
                         column_definition_list[col] = 1
+                        amount_of_definitions[counter] += 1
                     else:
                         column_definition_list[col] = 0
                         amount_of_definitions[counter] += 1
@@ -132,6 +149,7 @@ def createNumericalData(data_to_enumerate):
             # Go to next column
             counter += 1
     # Return the enumerated data
+    print(amount_of_definitions)
     return data_to_enumerate
 
 
@@ -147,14 +165,15 @@ def refinement_equal_to(seed, counter, value_to_compare_with):
 
 # Find all rows in which value of the counter'ed column is NOT equal to the value_to_compare_with
 # Return these rows as subset
-def refinement_negative(seed, counter, value_to_compare_with):
+def refinement_not_equal_to(seed, counter, value_to_compare_with):
     subset = list()
     for line in seed:
         if line[counter] != value_to_compare_with:
             subset.append(line)
     return subset
 
-
+# Find all rows in which value of the counter'ed column is larger than (or equal to) the value_to_compare_with
+# Return these rows as subset
 def refinement_larger(seed, counter, value_to_compare_with):
     subset = list()
     for line in seed:
@@ -162,7 +181,8 @@ def refinement_larger(seed, counter, value_to_compare_with):
             subset.append(line)
     return subset
 
-
+# Find all rows in which value of the counter'ed column is smaller than (or equal to) the value_to_compare_with
+# Return these rows as subset
 def refinement_smaller(seed, counter, value_to_compare_with):
     subset = list()
     for line in seed:
@@ -170,182 +190,235 @@ def refinement_smaller(seed, counter, value_to_compare_with):
             subset.append(line)
     return subset
 
-
+# Check whether the counter'ed column has already been used as description and therefore
 def check_counter(seed, counter):
-    for j in range(len(seed[1])):
-        if counter == seed[1][j][0]:
+    for j in range(len(seed)):
+        seed_to_compare = seed[j][0]
+        if counter == seed_to_compare:
             return True
     return False
 
 
-# TODO Add numeric data
-def refinement_operator(seed, data, bins):
-    NumberTypes = (int, float, complex)
+def remove_duplicates(k):
+    k.sort()
+    dedup = [k[i] for i in range(len(k)) if i == 0 or k[i] != k[i - 1]]
+    return dedup
+
+'''
+Save all descriptions possible based on the seed
+If the seed is empty, all descriptions possible are added
+Otherwise, all descriptions are added, except for the columns of which a descriptions already exists
+'''
+
+
+def refinement_operator(seed, bins_amount):
     global definition_list
-    if len(seed) == 0:
-        seed = [data, []]
-    refinement_set = list()
+    description_set = list()
+
     for counter in descriptors:
         # if len(seed) == 2:
+        # check whether a descr has already been defined for the counter'ed column
         if check_counter(seed, counter):
             continue
+
+        # take the definition list of a specific column
         column_definition_list = definition_list[counter]
-        for key, value in column_definition_list.items():
-            if isinstance(key, NumberTypes) and not isinstance(key, bool):
-                print("integer")
+        for definition_key, definition_value in column_definition_list.items():
+            # if the column contains integers, then add the descriptors for all possible values
+            # break out of the for loop
+            if isinstance(definition_key, (int, float, complex)) and not isinstance(definition_key, bool):
+                #make a list of all values in the numeric counter'ed column
                 all_values = list(column_definition_list.values())
                 all_values.sort()
                 n = len(column_definition_list.items())
-                for j in range(1, bins):
-                    Sj = all_values[math.floor(j * (n / bins))]
-                    description = [[counter, "<=", Sj]]
-                    description = seed[1] + description
-                    refinement_set.append([refinement_smaller(seed[0], counter, Sj), description])
-                    description = [[counter, ">=", Sj]]
-                    description = seed[1] + description
-                    refinement_set.append([refinement_larger(seed[0], counter, Sj), description])
-                    print([refinement_larger(seed[0], counter, Sj), description])
-            else:
-                description = [[counter, "==", value]]
-                description = seed[1] + description
-                    # if len(seed) == 2 else description
-                refinement_set.append([refinement_equal_to(seed[0], counter, value), description])
-                if not isinstance(key, bool):
-                    description = [[counter, "!=", value]]
-                    description = seed[1] + description
-                        # if len(seed) == 2 else description
-                    refinement_set.append([refinement_negative(seed[0], counter, value), description])
-        print("counter:" + str(counter))
-    return refinement_set
+                for j in range(1, bins_amount):
+                    Sj = all_values[math.floor(j * (n / bins_amount))]
 
+                    # add the new descriptor to the already defined descriptors in the seed
+                    descr = [[counter, "<=", Sj]]
+                    descr = seed + descr
+                    description_set.append(descr)
+
+                    # add the new descriptor to the already defined descriptors in the seed
+                    descr = [[counter, ">=", Sj]]
+                    descr = seed + descr
+                    description_set.append(descr)
+                break
+            else:
+                # the column is not numeric, thus it is a boolean or nominal, first we add the description equal to
+                # add the new descriptor to the already defined descriptors in the seed
+                descr = [[counter, "==", definition_value]]
+                descr = seed + descr
+                description_set.append(descr)
+
+                # the column is nominal, thus we add the description not equal to
+                if not isinstance(definition_key, bool):
+                    descr = [[counter, "!=", definition_value]]
+                    descr = seed + descr
+                        # if len(seed) == 2 else descr
+                    description_set.append(descr)
+        print("counter:" + str(counter))
+    #make sure that there are no duplicates, to avoid overhead
+    description_set = remove_duplicates(description_set)
+    return description_set
+
+# Set the targets of the dataset by providing the number of the column. These 'numbers' will be deleted from the
+# descriptor set
 def setTarget(number):
     global targets
     targets = targets + [number]
     global descriptors
     descriptors = list(set(descriptors) - set(targets))
 
-# def difference_lists
-def calculateQuality(refinement_set, data_set, constraints):
-    subgroup_set = refinement_set[0]
-    descriptions = refinement_set[1]
-    global data_size
-    subgroup_size = len(subgroup_set)
-    if subgroup_size < 1:
-        return 0
-    # Create nonsubgroup
-    # seed = data_set
-    # for row in descriptions:
-    #     counter = row[0]
-    #     operator = row[1]
-    #     value = row[2]
-    #
-    #     if operator == "==":
-    #         seed = refinement_negative(seed, counter, value)
-    #     elif operator == "!=":
-    #         seed = refinement_positive(seed, counter, value)
-    #
-    # nonsubgroup_set = seed
-    # nonsubgroup_size = len(nonsubgroup_set)
+# Create subgroup using the description_set
+
+def createSubgroup(description_set, data_set):
+    result_set = data_set
+    for line in description_set:
+        counter = line[0]
+        operator = line[1]
+        value_to_compare_with = line[2]
+
+        if operator == "==":
+            result_set = refinement_equal_to(result_set, counter, value_to_compare_with)
+        elif operator == "!=":
+            result_set = refinement_not_equal_to(result_set, counter, value_to_compare_with)
+        elif operator == ">=":
+            result_set = refinement_larger(result_set, counter, value_to_compare_with)
+        elif operator == "<=":
+            result_set = refinement_smaller(result_set, counter, value_to_compare_with)
+
+    return result_set
 
 
-    # n1 = A (row[target[0]] == 0) and NoClick (row[target[1]] == 0)
-    # n2 = A (row[target[0]] == 0) and Click (row[target[1]] == 1)
-    # n3 = B (row[target[0]] == 1) and NoClick (row[target[1]] == 0)
-    # n4 = B (row[target[0]] == 1) and Click (row[target[1]] == 1)
-    # y1 = nonsubgroup
-    # row[targets[0]] = Combination Id --> 1 = B and 0 = A
-    # row[targets[1]] = Converted --> No Click = 0 and Click = 1
-    # 1 is True = B, #0 is False = A
+#The modelClass, in our case we use association
+def model_class(subgroup_set):
+
+    """
+    N1 = A (line[target[0]] == 0) and NoClick (line[target[1]] == 0)
+    N2 = A (line[target[0]] == 0) and Click (line[target[1]] == 1)
+    N3 = B (line[target[0]] == 1) and NoClick (line[target[1]] == 0)
+    N4 = B (line[target[0]] == 1) and Click (line[target[1]] == 1)
+    line[targets[0]] = Combination Id --> 1 = B and 0 = A
+    line[targets[1]] = Converted --> No Click = 0 and Click = 1
+    1 is True = B, #0 is False = A
+    """
 
     N1 = 0
     N2 = 0
     N3 = 0
     N4 = 0
-    for row in subgroup_set:
-        if row[targets[0]] == 0 and row[targets[1]] == 0:
+
+    for line in subgroup_set:
+        if line[targets[0]] == 0 and line[targets[1]] == 0:
             N1 += 1
-        elif row[targets[0]] == 0 and row[targets[1]] == 1:
+        elif line[targets[0]] == 0 and line[targets[1]] == 1:
             N2 += 1
-        elif row[targets[0]] == 1 and row[targets[1]] == 0:
+        elif line[targets[0]] == 1 and line[targets[1]] == 0:
             N3 += 1
-        elif row[targets[0]] == 1 and row[targets[1]] == 1:
+        elif line[targets[0]] == 1 and line[targets[1]] == 1:
             N4 += 1
 
+    return N1, N2, N3, N4
+
+
+#We use Yule's Q
+def quality_method(N1, N2, N3, N4, constraint):
+    # Return 0 if the denominator is 0, since then only one version is present or only clicks/no clicks
     if N1 * N4 + N2 * N3 == 0:
         return 0
 
-    if N2 < constraints and N4 < constraints:
+    # return 0 if the size of the subsets of the associations are not significant
+    if N2 < constraint and N4 < constraint:
         return 0
 
-    if N1 < constraints and N3 < constraints:
+    if N1 < constraint and N3 < constraint:
         return 0
 
-    quality = (N1 * N4 - N2 * N3)/(N1 * N4 + N2 * N3)
-    if quality == 1:
-        print("hello")
-    return quality
+    return (N1 * N4 - N2 * N3) / (N1 * N4 + N2 * N3)
 
-def beamSearch(data, q, d, w, bins, constraints):
+
+# calculate the quality of each description set
+def calculateQuality(description_set, data_set, constraint):
+    subgroup_set = createSubgroup(description_set, data_set)
+    subgroup_size = len(subgroup_set)
+    if subgroup_size < 1:
+        return 0, 0
+
+    N1, N2, N3, N4 = model_class(subgroup_set)
+
+    return len(subgroup_set), quality_method(N1, N2, N3, N4, constraint)
+
+# the beamsearch as explained in the paper Exceptional Model Mining # Supervised descriptive local pattern
+# mining with complex target # concepts
+def beamSearch(beam_data, beam_result_length, beam_depth, beam_width, beam_bins, beam_constraint):
+    # create queue for the candidates
     candidateQueue = queue.Queue()
-    candidateQueue.put({})
+    candidateQueue.put([])
 
-    resultSet = PriorityQueue(q)
-    for i in range(d):
-        beam = PriorityQueue(w)
+    # create result Set: this is a priority queue with length beam_result_length
+    resultSet = PriorityQueue(beam_result_length)
+    for _ in range(beam_depth):
+        # create the beam: this is a priority queue with length beam_width
+        beam = PriorityQueue(beam_width)
         while not candidateQueue.empty():
+            # take a seed
             seed = candidateQueue.get()
-            if len(seed) == 3:
-                seed = [seed[0], seed[1]]
-            refinement_sets = refinement_operator(seed, data, bins)
-            for j in range(len(refinement_sets)):
-                refinement_set = refinement_sets[j]
-                quality = calculateQuality(refinement_set, data, constraints)
+            # seed can contain both the descriptions and the version, if so, only save the description
+            if len(seed) == 2:
+                seed = seed[0]
+
+            # define the descriptions using the seed and the bins
+            description_sets = refinement_operator(seed, beam_bins)
+
+            # for each set of descriptions, calculate the quality and put in the beam and resultset
+            for j in range(len(description_sets)):
+                description_set = description_sets[j]
+                subgroup_set_size, quality = calculateQuality(description_set, beam_data, beam_constraint)
+                if j % 100 == 0:
+                    print(str(j) + ": " + str(len(description_sets)))
                 #TODO: Satisfy all conditions (figure out)
-                if constraints <= len(refinement_set[0]) <= len(data) - constraints:
-                    print(quality)
+                if beam_constraint <= subgroup_set_size <= len(beam_data) - beam_constraint:
+                    #Also remember the combination ID at which was clicked most often
                     combinationId = ["A"] if quality <= 0 else ["B"]
-                    refinement_set = refinement_set + combinationId
-                    resultSet.push(abs(quality), refinement_set)
-                    beam.push(abs(quality), refinement_set)
+                    description_set = [description_set] + combinationId
+                    resultSet.push(abs(quality), description_set)
+                    beam.push(abs(quality), description_set)
+        # add all beams to the candidate_queue
         while not beam.empty():
             _, candidate = beam.pop()
             candidateQueue.put(candidate)
     return resultSet
 
 
-constraints = 20
-w = 10
-q = 5
-d = 3
-bins = 5
+def print_result(result):
+    while not result.empty():
+        quality, row = result.pop()
+        end_description = ""
+        begin = True
+        for description in row[0]:
+            if begin:
+                begin = False
+            else:
+                end_description += " AND "
+            name = column_names[description[0]]
+            for key, value in definition_list[description[0]].items():
+                if value == description[2]:
+                    equalTo = key
+                    continue
+            end_description += str(name) + " " + description[1] + " " + str(equalTo)
+        print(end_description)
+        print(createSubgroup(row[0], numericData))
+        print(row[1])
+        print(quality)
 
-data = importData.get_data()
-data_size = len(data)
-amount_of_columns = len(data[0])
-column_names = importData.get_column_names()
+
 for i in range(len(data[0])):
     descriptors += [i]
-# TODO change to 9 and 10
-setTarget(6)
-setTarget(7)
+setTarget(9)
+setTarget(10)
 numericData = createNumericalData(data)
-result = beamSearch(numericData, q, d, w, constraints, bins)
-while not result.empty():
-    quality, row = result.pop()
-    end_description = ""
-    begin = True
-    for description in row[1]:
-        if begin:
-            begin = False
-        else:
-            end_description += " AND "
-        name = column_names[description[0]]
-        for key, value in definition_list[description[0]].items():
-            if value == description[2]:
-                equalTo = key
-                continue
-        end_description += str(name) + " " + description[1] + " " + str(equalTo)
-    print(end_description)
-    print(row[0])
-    print(row[2])
-    print(quality)
+result = beamSearch(numericData, result_amount, depth, width, minimum_set_size, bins)
+print_result(result)
+
+
