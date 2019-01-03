@@ -1,4 +1,5 @@
 import heapq
+import math
 
 from Tools.scripts.treesync import raw_input
 
@@ -110,6 +111,20 @@ def refinement_negative(seed, counter, value):
             subset.append(row)
     return subset
 
+def refinement_larger(seed, counter, value):
+    subset = list()
+    for row in seed:
+        if row[counter] >= value:
+            subset.append(row)
+    return subset
+
+def refinement_smaller(seed, counter, value):
+    subset = list()
+    for row in seed:
+        if row[counter] <= value:
+            subset.append(row)
+    return subset
+
 
 def checkcounter(seed, counter):
     for j in range(len(seed[1])):
@@ -119,7 +134,8 @@ def checkcounter(seed, counter):
     return(False)
 
 #TODO Add numeric data
-def refinement_operator(seed, data):
+def refinement_operator(seed, data, bins):
+    NumberTypes = (int, float, complex)
     global definition_list
     if len(seed) == 0:
         seed = [data, []]
@@ -131,15 +147,30 @@ def refinement_operator(seed, data):
             continue
         column_definition_list = definition_list[counter]
         for key, value in column_definition_list.items():
-            description = [[counter, "==", value]]
-            description = seed[1] + description
-                # if len(seed) == 2 else description
-            refinement_set.append([refinement_positive(seed[0], counter, value), description])
-            if not isinstance(key, bool):
-                description = [[counter, "!=", value]]
+            if isinstance(key, NumberTypes):
+                allvalues = list(column_definition_list.values())
+                allvalues = allvalues.sort()
+                print(allvalues)
+                n = len(column_definition_list.items())
+                for j in range(1, bins):
+                    print(j)
+                    Sj = allvalues[math.floor(j * (n / bins))]
+                    description = [[counter, "<=", Sj]]
+                    description = seed[1] + description
+                    refinement_set.append([refinement_smaller(seed[0], counter, Sj), description])
+                    description = [[counter, ">=", Sj]]
+                    description = seed[1] + description
+                    refinement_set.append([refinement_larger(seed[0], counter, Sj), description])
+            else:
+                description = [[counter, "==", value]]
                 description = seed[1] + description
                     # if len(seed) == 2 else description
-                refinement_set.append([refinement_negative(seed[0], counter, value), description])
+                refinement_set.append([refinement_positive(seed[0], counter, value), description])
+                if not isinstance(key, bool):
+                    description = [[counter, "!=", value]]
+                    description = seed[1] + description
+                        # if len(seed) == 2 else description
+                    refinement_set.append([refinement_negative(seed[0], counter, value), description])
         print(counter)
     return refinement_set
 
@@ -210,7 +241,7 @@ def calculateQuality(refinement_set, data_set, constraints):
         print("hello")
     return quality
 
-def beamSearch(data, q, d, w, constraints):
+def beamSearch(data, q, d, w, bins, constraints):
     candidateQueue = queue.Queue()
     candidateQueue.put({})
 
@@ -221,7 +252,7 @@ def beamSearch(data, q, d, w, constraints):
             seed = candidateQueue.get()
             if len(seed) == 3:
                 seed = [seed[0], seed[1]]
-            refinement_sets = refinement_operator(seed, data)
+            refinement_sets = refinement_operator(seed, data, bins)
             for j in range(len(refinement_sets)):
                 refinement_set = refinement_sets[j]
                 quality = calculateQuality(refinement_set, data, constraints)
@@ -242,9 +273,11 @@ constraints = 20
 w = 10
 q = 5
 d = 3
+bins = 5
 
 data = importData.get_data()
 data_size = len(data)
+amount_of_columns = len(data[0])
 column_names = importData.get_column_names()
 for i in range(len(data[0])):
     descriptors += [i]
@@ -252,7 +285,7 @@ for i in range(len(data[0])):
 setTarget(6)
 setTarget(7)
 numericData = createNumericalData(data)
-result = beamSearch(numericData, q, d, w, constraints)
+result = beamSearch(numericData, q, d, w, constraints, bins)
 while not result.empty():
     quality, row = result.pop()
     end_description = ""

@@ -71,6 +71,7 @@ visit_columns.append("Country")
 visit_columns.append("Combination Id")
 visit_columns.append("Converted")
 
+
 columnIndexes = dict()
 categoricalUnits = dict()
 
@@ -78,7 +79,7 @@ with open('data-delimited.csv', 'r', encoding='utf-8') as csvfile:
     spamreader = csv.reader(csvfile, delimiter=',', quotechar='"')
 
     i = 0
-    counter = 0
+    # counter = 0
     for row in spamreader:
         if i == 0:
             j = 0
@@ -92,6 +93,8 @@ with open('data-delimited.csv', 'r', encoding='utf-8') as csvfile:
         for name in visit_columns:
             value = formatValue(row[columnIndexes[name]])
             readRow.append(value)
+        #TODO: delete
+        readRow.append(i)
         if "null" in readRow:
             # TODO change to 4
             if "Windows" in readRow[2]:
@@ -105,6 +108,7 @@ with open('data-delimited.csv', 'r', encoding='utf-8') as csvfile:
             readRow[7] = True if readRow[7] == 1 else False
             visit.append(readRow)
         i += 1
+    visit_columns.append("counter")
 
 
 # with open('data_file.csv', mode='wb') as csvfile:
