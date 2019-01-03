@@ -1,8 +1,5 @@
 import heapq
 import math
-
-from Tools.scripts.treesync import raw_input
-
 import importData
 import queue
 
@@ -10,6 +7,22 @@ definition_list = list()
 amount_of_definitions = list()
 targets = list()
 descriptors = list()
+
+
+''' 
+Class which represents the priority queue where a high priority represents a better quality
+In these priority queues, the length is already preserved
+Input: length (integer)
+Functions:
+    push (priority, x): put an element in the queue with a priority and a value (x). If the lenght of the priority queue
+    is exceeded, the element with smallest priority is deleted
+    
+    pop: returns the element and priority of the element with highest priority
+    
+    empty: returns True if PriorityQueue is empty, False if it is not empty
+    
+    inQueue: returns True if item x is already in the priority queue, False if it is not in the priority queue 
+'''
 
 
 class PriorityQueue:
@@ -45,11 +58,13 @@ class PriorityQueue:
             else:
                 return False
 
-def sameDescriptors(descriptors, descriptorstocompare):
-    for row in descriptors:
+
+# Check whether the both lists of descriptors are exactly the same
+def sameDescriptors(descriptor_list1, descriptor_list2):
+    for line in descriptor_list1:
         inDescriptors = False
-        for rowToCompare in descriptorstocompare:
-            if row[0] == rowToCompare[0] and row[1] == rowToCompare[1] and row[2] == rowToCompare[2]:
+        for lineToCompare in descriptor_list2:
+            if line[0] == lineToCompare[0] and line[1] == lineToCompare[1] and line[2] == lineToCompare[2]:
                 inDescriptors = True
                 break
         if not inDescriptors:
@@ -57,83 +72,113 @@ def sameDescriptors(descriptors, descriptorstocompare):
     return True
 
 
-def pause():
-    program_pause = raw_input("Press the <ENTER> key to continue...")
+'''
+Create numerical data of the input. There are several distinct cases:
+If the column only contains string values, then all string values are changed to integers and the string value is saved 
+    in a dictionary with the following format {key String: value integer}
+If the column only contains booleans, then False is saved as 0 and True as 1. The dictionary looks as follows:
+    {False: 0, True: 1} 
+If the column only contains integers, then the integers are kept in the list. For the dictionary are the key and value
+the same, namely the integer x
+'''
 
 
-def createNumericalData(data):
+def createNumericalData(data_to_enumerate):
+    # Create the definition list with the correct amount of dictionaries
     global definition_list
     definition_list = [dict() for _ in column_names]
+
+    # Keep track for each column, how many definitions are saved in the dictionary
     global amount_of_definitions
     amount_of_definitions = [0 for _ in column_names]
-    for row in data:
+
+    for line in data_to_enumerate:
         counter = 0
-        for col in row:
+        for col in line:
+            # Take the corresponding definition list and amount
             column_definition_list = definition_list[counter]
             amount = amount_of_definitions[counter]
             if isinstance(col, str):
+                # If col not defined in the column_definition_list, add to the definition list and
+                # plus one to the amount
                 if col not in column_definition_list:
                     column_definition_list[col] = amount
                     index = amount
                     amount_of_definitions[counter] = amount + 1
+                # IF col already defined, take the value corresponding to this col
                 else:
                     index = column_definition_list[col]
             elif isinstance(col, bool):
+                # If col not defined in the column_definition_list, add to the definition list and
+                # plus one to the amount.
+                # If col = True, then the corresponding integer is 1, else 0
                 if col not in column_definition_list:
                     if col:
-                        column_definition_list[1] = 1
+                        column_definition_list[col] = 1
                     else:
-                        column_definition_list[0] = 1
+                        column_definition_list[col] = 0
                         amount_of_definitions[counter] += 1
                 index = 1 if col else 0
+            # Col is numeric
             else:
-                #numeric
+                # If col not defined in the column_definition_list, add to the definition list and
+                # plus one to the amount
                 if col not in column_definition_list:
                     column_definition_list[col] = col
                     amount_of_definitions[counter] += 1
                 index = col
-            row[counter] = index
+            # Change col to the index aka the value in the dictionary
+            line[counter] = index
+            # Go to next column
             counter += 1
-    return data
+    # Return the enumerated data
+    return data_to_enumerate
 
-def refinement_positive(seed, counter, value):
+
+# Find all rows in which value of the counter'ed column is equal to the value_to_compare_with
+# Return these rows as subset
+def refinement_equal_to(seed, counter, value_to_compare_with):
     subset = list()
-    for row in seed:
-        if row[counter] == value:
-            subset.append(row)
+    for line in seed:
+        if line[counter] == value_to_compare_with:
+            subset.append(line)
     return subset
 
 
-def refinement_negative(seed, counter, value):
+# Find all rows in which value of the counter'ed column is NOT equal to the value_to_compare_with
+# Return these rows as subset
+def refinement_negative(seed, counter, value_to_compare_with):
     subset = list()
-    for row in seed:
-        if row[counter] != value:
-            subset.append(row)
-    return subset
-
-def refinement_larger(seed, counter, value):
-    subset = list()
-    for row in seed:
-        if row[counter] >= value:
-            subset.append(row)
-    return subset
-
-def refinement_smaller(seed, counter, value):
-    subset = list()
-    for row in seed:
-        if row[counter] <= value:
-            subset.append(row)
+    for line in seed:
+        if line[counter] != value_to_compare_with:
+            subset.append(line)
     return subset
 
 
-def checkcounter(seed, counter):
+def refinement_larger(seed, counter, value_to_compare_with):
+    subset = list()
+    for line in seed:
+        if line[counter] >= value_to_compare_with:
+            subset.append(line)
+    return subset
+
+
+def refinement_smaller(seed, counter, value_to_compare_with):
+    subset = list()
+    for line in seed:
+        if line[counter] <= value_to_compare_with:
+            subset.append(line)
+    return subset
+
+
+def check_counter(seed, counter):
     for j in range(len(seed[1])):
         if counter == seed[1][j][0]:
-            print("hello")
-            return(True)
-    return(False)
+            return True
+    return False
 
-#TODO Add numeric data
+
+# TODO Add numeric data
 def refinement_operator(seed, data, bins):
     NumberTypes = (int, float, complex)
     global definition_list
@@ -141,37 +186,36 @@ def refinement_operator(seed, data, bins):
         seed = [data, []]
     refinement_set = list()
     for counter in descriptors:
-        print(counter)
         # if len(seed) == 2:
-        if checkcounter(seed, counter):
+        if check_counter(seed, counter):
             continue
         column_definition_list = definition_list[counter]
         for key, value in column_definition_list.items():
-            if isinstance(key, NumberTypes):
-                allvalues = list(column_definition_list.values())
-                allvalues = allvalues.sort()
-                print(allvalues)
+            if isinstance(key, NumberTypes) and not isinstance(key, bool):
+                print("integer")
+                all_values = list(column_definition_list.values())
+                all_values.sort()
                 n = len(column_definition_list.items())
                 for j in range(1, bins):
-                    print(j)
-                    Sj = allvalues[math.floor(j * (n / bins))]
+                    Sj = all_values[math.floor(j * (n / bins))]
                     description = [[counter, "<=", Sj]]
                     description = seed[1] + description
                     refinement_set.append([refinement_smaller(seed[0], counter, Sj), description])
                     description = [[counter, ">=", Sj]]
                     description = seed[1] + description
                     refinement_set.append([refinement_larger(seed[0], counter, Sj), description])
+                    print([refinement_larger(seed[0], counter, Sj), description])
             else:
                 description = [[counter, "==", value]]
                 description = seed[1] + description
                     # if len(seed) == 2 else description
-                refinement_set.append([refinement_positive(seed[0], counter, value), description])
+                refinement_set.append([refinement_equal_to(seed[0], counter, value), description])
                 if not isinstance(key, bool):
                     description = [[counter, "!=", value]]
                     description = seed[1] + description
                         # if len(seed) == 2 else description
                     refinement_set.append([refinement_negative(seed[0], counter, value), description])
-        print(counter)
+        print("counter:" + str(counter))
     return refinement_set
 
 def setTarget(number):
