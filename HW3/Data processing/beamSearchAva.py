@@ -15,6 +15,7 @@ width = 15
 depth = 3
 bins = 5
 result_amount = 8
+targets = [9, 10]
 
 # Define the data and the column names. Important is that a column should be either binary, numeric or nominal.
 # It cannot be a combination
@@ -267,6 +268,7 @@ def refinement_operator(seed, bins_amount):
 def setTarget(number):
     global targets
     targets = targets + [number]
+    # targets = targets + [number]
     global descriptors
     descriptors = list(set(descriptors) - set(targets))
 
@@ -319,7 +321,7 @@ def model_class(subgroup_set):
         elif line[targets[0]] == 1 and line[targets[1]] == 1:
             N4 += 1
 
-     return N1, N2, N3, N4
+    return N1, N2, N3, N4
 
 
 #We use Yule's Q
@@ -342,7 +344,7 @@ def quality_method(N1, N2, N3, N4, constraint):
 def calculateQuality(description_set, data_set, constraint):
     subgroup_set = createSubgroup(description_set, data_set)
     subgroup_size = len(subgroup_set)
-    if subgroup_size < 1:
+    if subgroup_size < constraint:
         return 0, 0
 
     N1, N2, N3, N4 = model_class(subgroup_set)
@@ -367,7 +369,7 @@ def beamSearch(beam_data, beam_result_length, beam_depth, beam_width, beam_bins,
             # seed can contain both the descriptions and the version, if so, only save the description
             if len(seed) == 2:
                 seed = seed[0]
-
+            print(description_sets)
             # define the descriptions using the seed and the bins
             description_sets = refinement_operator(seed, beam_bins)
 
@@ -415,6 +417,7 @@ def print_result(result):
 
 for i in range(len(data[0])):
     descriptors += [i]
+# setTargets()
 setTarget(9)
 setTarget(10)
 numericData = createNumericalData(data)
