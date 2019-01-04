@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84986019-4194-408f-9367-544175005a51" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Data processing.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Data processing.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/beamSearchAva.py" beforeDir="false" afterPath="$PROJECT_DIR$/beamSearchAva.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/importData.py" beforeDir="false" afterPath="$PROJECT_DIR$/importData.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,35 +13,40 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Data_processing$beamSearch.coverage" NAME="beamSearch Coverage Results" MODIFIED="1545995805239" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Data_processing$beamSearchAva.coverage" NAME="beamSearchAva Coverage Results" MODIFIED="1546552373840" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Data_processing$beamSearchAva.coverage" NAME="beamSearchAva Coverage Results" MODIFIED="1546586035214" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Data_processing$import.coverage" NAME="import Coverage Results" MODIFIED="1545064723929" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/importData.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
+            <state relative-caret-position="473">
               <caret line="115" column="38" selection-start-line="115" selection-start-column="38" selection-end-line="115" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/beamSearchAva.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="414" lean-forward="true" selection-start-line="414" selection-end-line="414" />
+            <state relative-caret-position="17">
+              <caret line="321" column="1" selection-start-line="321" selection-start-column="1" selection-end-line="321" selection-end-column="1" />
               <folding>
                 <element signature="e#153#812#1" />
                 <element signature="e#840#1848#0" />
                 <element signature="e#1979#2323#0" />
                 <element signature="e#2326#2884#1" />
-                <element signature="e#2935#5334#0" />
+                <element signature="e#5528#5666#0" />
                 <element signature="e#5864#6002#0" />
+                <element signature="e#6070#6208#0" />
                 <element signature="e#6277#6415#0" />
+                <element signature="e#6737#6844#0" />
+                <element signature="e#6982#7098#0" />
+                <element signature="e#7823#10279#0" />
                 <element signature="e#9113#9239#0" />
-                <element signature="e#10896#11787#0" />
+                <element signature="e#9292#9858#0" />
+                <element signature="e#15158#15855#0" />
               </folding>
             </state>
           </provider>
@@ -74,16 +75,15 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/import.py" />
-        <option value="$PROJECT_DIR$/importData.py" />
         <option value="$PROJECT_DIR$/beamSearchAva.py" />
+        <option value="$PROJECT_DIR$/importData.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1928" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="-1927" />
+    <option name="width" value="974" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -268,12 +268,12 @@
       <workItem from="1546506350806" duration="2422000" />
       <workItem from="1546517425984" duration="4681000" />
       <workItem from="1546523720570" duration="260000" />
-      <workItem from="1546531217130" duration="16649000" />
+      <workItem from="1546531217130" duration="20729000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93915000" />
+    <option name="totallyTimeSpent" value="97995000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
@@ -284,8 +284,8 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32827735" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3488624" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39869988" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3488624" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39869988" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -300,7 +300,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info anchor="right" id="Database" order="4" />
-      <window_info anchor="right" x="0" y="0" width="434" height="856" id="Documentation" order="5" side_tool="true" visible="true" weight="0.32995737" />
+      <window_info anchor="right" x="0" y="0" width="434" height="856" id="Documentation" order="5" side_tool="true" visible="true" weight="0.32889125" />
       <window_info anchor="right" id="Coverage" order="6" side_tool="true" />
     </layout>
     <layout-to-restore>
@@ -332,6 +332,14 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <condition expression="abs(quality) == 1.0" language="Python" />
+          <url>file://$PROJECT_DIR$/beamSearchAva.py</url>
+          <line>349</line>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -351,6 +359,36 @@
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="breakpointCondition">
+      <expression>
+        <expression-string>abs(quality) == 1.0</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>description_set == [[7, &quot;==&quot;, 104]]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>col == 'Riga'</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>col = 'Riga'</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>description_set == [[7, &quot;==&quot;, ]]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>description_set = [[]]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>j == 47</expression-string>
         <language-id>Python</language-id>
@@ -380,28 +418,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/importData.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="115" column="38" selection-start-line="115" selection-start-column="38" selection-end-line="115" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/beamSearchAva.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="414" lean-forward="true" selection-start-line="414" selection-end-line="414" />
+        <state relative-caret-position="17">
+          <caret line="321" column="1" selection-start-line="321" selection-start-column="1" selection-end-line="321" selection-end-column="1" />
           <folding>
             <element signature="e#153#812#1" />
             <element signature="e#840#1848#0" />
             <element signature="e#1979#2323#0" />
             <element signature="e#2326#2884#1" />
-            <element signature="e#2935#5334#0" />
+            <element signature="e#5528#5666#0" />
             <element signature="e#5864#6002#0" />
+            <element signature="e#6070#6208#0" />
             <element signature="e#6277#6415#0" />
+            <element signature="e#6737#6844#0" />
+            <element signature="e#6982#7098#0" />
+            <element signature="e#7823#10279#0" />
             <element signature="e#9113#9239#0" />
-            <element signature="e#10896#11787#0" />
+            <element signature="e#9292#9858#0" />
+            <element signature="e#15158#15855#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/importData.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="115" column="38" selection-start-line="115" selection-start-column="38" selection-end-line="115" selection-end-column="38" />
         </state>
       </provider>
     </entry>

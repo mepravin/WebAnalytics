@@ -10,7 +10,7 @@ descriptors = list()
 
 # !!!User can define the minimum set size of the result (constraints), the width, the depth, the amount of bins and
 # the amount of results
-minimum_set_size = 20
+minimum_set_size = 25
 width = 15
 depth = 3
 bins = 5
@@ -319,7 +319,7 @@ def model_class(subgroup_set):
         elif line[targets[0]] == 1 and line[targets[1]] == 1:
             N4 += 1
 
-    return N1, N2, N3, N4
+     return N1, N2, N3, N4
 
 
 #We use Yule's Q
@@ -346,8 +346,8 @@ def calculateQuality(description_set, data_set, constraint):
         return 0, 0
 
     N1, N2, N3, N4 = model_class(subgroup_set)
-
-    return len(subgroup_set), quality_method(N1, N2, N3, N4, constraint)
+    quality = quality_method(N1, N2, N3, N4, constraint)
+    return len(subgroup_set), quality
 
 # the beamsearch as explained in the paper Exceptional Model Mining # Supervised descriptive local pattern
 # mining with complex target # concepts
@@ -418,7 +418,7 @@ for i in range(len(data[0])):
 setTarget(9)
 setTarget(10)
 numericData = createNumericalData(data)
-result = beamSearch(numericData, result_amount, depth, width, minimum_set_size, bins)
+result = beamSearch(numericData, result_amount, depth, width, bins, minimum_set_size)
 print_result(result)
 
 
