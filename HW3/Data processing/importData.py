@@ -119,7 +119,7 @@ with open('data-delimited.csv', 'r', encoding='utf-8') as csv_file:
 
             visit.append(readRow)
         i += 1
-    # JUI, add the column_name (in the same order as you appended the data in the top.
+    # JUI, add the column_name (in the same order as you appended the data before.
     # e.g. visit_columns.append("Gender")
 # Save data in new csv file
 # with open('data_file.csv', mode='wb') as csvfile:
