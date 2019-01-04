@@ -99,6 +99,8 @@ with open('data-delimited.csv', 'r', encoding='utf-8') as csv_file:
         for name in visit_columns:
             value = formatValue(row[columnIndexes[name]])
             readRow.append(value)
+        # JUI - add the data here (by doing readRow.append(gender)
+        # For gender I recommend True False
         if "null" not in readRow:
             # 1 is True = B, #0 is False = A
             readRow[0] = str(readRow[0])
@@ -117,7 +119,8 @@ with open('data-delimited.csv', 'r', encoding='utf-8') as csv_file:
 
             visit.append(readRow)
         i += 1
-
+    # JUI, add the column_name (in the same order as you appended the data in the top.
+    # e.g. visit_columns.append("Gender")
 # Save data in new csv file
 # with open('data_file.csv', mode='wb') as csvfile:
 #     data_writer = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
