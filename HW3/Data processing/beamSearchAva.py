@@ -10,12 +10,12 @@ descriptors = list()
 
 # !!!User can define the minimum set size of the result (constraints), the width, the depth, the amount of bins and
 # the amount of results
-minimum_set_size = 25
-width = 15
+minimum_set_size = 20
+width = 20
 depth = 3
 bins = 5
-result_amount = 8
-targets = [9, 10]
+result_amount = 10
+targets = [6, 7]
 
 # Define the data and the column names. Important is that a column should be either binary, numeric or nominal.
 # It cannot be a combination
@@ -263,17 +263,16 @@ def refinement_operator(seed, bins_amount):
     description_set = remove_duplicates(description_set)
     return description_set
 
+
 # Set the targets of the dataset by providing the number of the column. These 'numbers' will be deleted from the
 # descriptor set
-def setTarget(number):
+def setTargets():
     global targets
-    targets = targets + [number]
-    # targets = targets + [number]
     global descriptors
     descriptors = list(set(descriptors) - set(targets))
 
-# Create subgroup using the description_set
 
+# Create subgroup using the description_set
 def createSubgroup(description_set, data_set):
     result_set = data_set
     for line in description_set:
@@ -293,7 +292,7 @@ def createSubgroup(description_set, data_set):
     return result_set
 
 
-#The modelClass, in our case we use association
+# The modelClass, in our case we use association
 def model_class(subgroup_set):
 
     """
@@ -324,7 +323,7 @@ def model_class(subgroup_set):
     return N1, N2, N3, N4
 
 
-#We use Yule's Q
+# We use Yule's Q
 def quality_method(N1, N2, N3, N4, constraint):
     # Return 0 if the denominator is 0, since then only one version is present or only clicks/no clicks
     if N1 * N4 + N2 * N3 == 0:
@@ -351,6 +350,7 @@ def calculateQuality(description_set, data_set, constraint):
     quality = quality_method(N1, N2, N3, N4, constraint)
     return len(subgroup_set), quality
 
+
 # the beamsearch as explained in the paper Exceptional Model Mining # Supervised descriptive local pattern
 # mining with complex target # concepts
 def beamSearch(beam_data, beam_result_length, beam_depth, beam_width, beam_bins, beam_constraint):
@@ -369,7 +369,6 @@ def beamSearch(beam_data, beam_result_length, beam_depth, beam_width, beam_bins,
             # seed can contain both the descriptions and the version, if so, only save the description
             if len(seed) == 2:
                 seed = seed[0]
-            print(description_sets)
             # define the descriptions using the seed and the bins
             description_sets = refinement_operator(seed, beam_bins)
 
@@ -410,16 +409,14 @@ def print_result(result):
                     continue
             end_description += str(name) + " " + description[1] + " " + str(equalTo)
         print(end_description)
-        print(createSubgroup(row[0], numericData))
         print(row[1])
         print(quality)
+        print("")
 
 
 for i in range(len(data[0])):
     descriptors += [i]
-# setTargets()
-setTarget(9)
-setTarget(10)
+setTargets()
 numericData = createNumericalData(data)
 result = beamSearch(numericData, result_amount, depth, width, bins, minimum_set_size)
 print_result(result)
