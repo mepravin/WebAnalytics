@@ -10,7 +10,7 @@ visit = list()
 visit_columns = list()
 
 # string - 0 - doesn't seem to make difference + large
-# visit_columns.append("\ufeffScreen Resolution")
+visit_columns.append("\ufeffScreen Resolution")
 # string - 1
 visit_columns.append("Browser")
 # visit_columns.append("Browser Version")
@@ -103,54 +103,57 @@ with open('data-delimited.csv', 'r', encoding='utf-8') as csv_file:
         # For gender I recommend True False
         if "null" not in readRow:
             # 1 is True = B, #0 is False = A
-            # readRow[0] = str(readRow[0])
+            height = (round(int(readRow[0].split('x')[0]) / 100)) * 100
+            length = (round(int(readRow[0].split('x')[1]) / 100)) * 100
+            readRow[0] = str(height) + 'x' + str(length)
             readRow[0] = str(readRow[0])
             readRow[1] = str(readRow[1])
             readRow[2] = str(readRow[2])
-            if "Samsung" in readRow[2]:
-                readRow[2] = "Samsung"
-            elif "Lenovo" in readRow[2]:
-                readRow[2] = "Lenovo"
-            elif "LG" in readRow[2]:
-                readRow[2] = "LG"
-            elif "Moto" in readRow[2]:
-                readRow[2] = "Motorola"
-            elif "ONEPLUS" in readRow[2]:
-                readRow[2] = "OnePlus"
-            elif "Pixel" in readRow[2]:
-                readRow[2] = "Pixel"
-            elif "HTC" in readRow[2]:
-                readRow[2] = "HTC"
-            elif "Asus" in readRow[2]:
-                readRow[2] = "Asus"
-            elif "HUAWEI" in readRow[2]:
-                readRow[2] = "HUAWEI"
-            elif "iPhone" in readRow[2]:
-                readRow[2] = "iPhone"
-            elif "iPad" in readRow[2]:
-                readRow[2] = "iPad"
-            elif "XiaoMi" in readRow[2]:
-                readRow[2] = "XiaoMi"
-            elif "Nexus" in readRow[2]:
-                readRow[2] = "Nexus"
-            elif "Mi" in readRow[2]:
-                readRow[2] = "Mi"
-            elif "Generic Smartphone" in readRow[2]:
-                readRow[2] = "Generic Smartphone"
-            elif "Other" in readRow[2]:
-                readRow[2] = "Other"
+            readRow[3] = str(readRow[3])
+            if "Samsung" in readRow[3]:
+                readRow[3] = "Samsung"
+            elif "Lenovo" in readRow[3]:
+                readRow[3] = "Lenovo"
+            elif "LG" in readRow[3]:
+                readRow[3] = "LG"
+            elif "Moto" in readRow[3]:
+                readRow[3] = "Motorola"
+            elif "ONEPLUS" in readRow[3]:
+                readRow[3] = "OnePlus"
+            elif "Pixel" in readRow[3]:
+                readRow[3] = "Pixel"
+            elif "HTC" in readRow[3]:
+                readRow[3] = "HTC"
+            elif "Asus" in readRow[3]:
+                readRow[3] = "Asus"
+            elif "HUAWEI" in readRow[3]:
+                readRow[3] = "HUAWEI"
+            elif "iPhone" in readRow[3]:
+                readRow[3] = "iPhone"
+            elif "iPad" in readRow[3]:
+                readRow[3] = "iPad"
+            elif "XiaoMi" in readRow[3]:
+                readRow[3] = "XiaoMi"
+            elif "Nexus" in readRow[3]:
+                readRow[3] = "Nexus"
+            elif "Mi" in readRow[3]:
+                readRow[3] = "Mi"
+            elif "Generic Smartphone" in readRow[3]:
+                readRow[3] = "Generic Smartphone"
+            elif "Other" in readRow[3]:
+                readRow[3] = "Other"
             else:
                 counter += 1
                 continue
             # if "Windows" in readRow[4]:
             #      readRow[4] = "Windows"
             # readRow[4] = str(readRow[4])
-            readRow[3] = True if readRow[3] == 1 else False
-            readRow[4] = str(readRow[4])
+            readRow[4] = True if readRow[4] == 1 else False
             readRow[5] = str(readRow[5])
+            readRow[6] = str(readRow[6])
             # readRow[7] = str(readRow[7])
-            readRow[6] = True if readRow[6] == 1 else False
             readRow[7] = True if readRow[7] == 1 else False
+            readRow[8] = True if readRow[8] == 1 else False
 
             visit.append(readRow)
         i += 1

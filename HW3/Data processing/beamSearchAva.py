@@ -15,7 +15,7 @@ width = 20
 depth = 3
 bins = 5
 result_amount = 10
-targets = [6, 7]
+targets = [7, 8]
 
 # Define the data and the column names. Important is that a column should be either binary, numeric or nominal.
 # It cannot be a combination
@@ -408,9 +408,10 @@ def print_result(result):
                     equalTo = key
                     continue
             end_description += str(name) + " " + description[1] + " " + str(equalTo)
-        print(end_description)
-        print(row[1])
-        print(quality)
+        print("description: " + end_description)
+        print("combination Id: " + row[1])
+        print("size of subset: " + str(len(createSubgroup(row[0], data))))
+        print("quality: " + str(quality))
         print("")
 
 
