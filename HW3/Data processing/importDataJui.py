@@ -1,4 +1,5 @@
 import csv
+import random
 
 
 # The list containing all data
@@ -41,10 +42,10 @@ visit_columns.append("User Language")
 # string - 8
 visit_columns.append("Country")
 
-#boolean - 9
+# boolean - 9
 visit_columns.append("Combination Id")
-#boolean - 10
-visit_columns.append("Converted")
+# boolean - 10
+# visit_columns.append("Converted")
 
 # A dictionary with the indices of the columns
 columnIndexes = dict()
@@ -99,8 +100,9 @@ with open('data-delimited.csv', 'r', encoding='utf-8') as csv_file:
         for name in visit_columns:
             value = formatValue(row[columnIndexes[name]])
             readRow.append(value)
-            readRow.append(timeTaken)
-            readRow.append(gender)
+        timeTaken = random.randint(225, 280)
+        readRow.append(timeTaken)
+        readRow.append(timeTaken)
         # JUI - add the data here (by doing readRow.append(gender)
         # For gender I recommend True False
         if "null" not in readRow:
@@ -155,24 +157,25 @@ with open('data-delimited.csv', 'r', encoding='utf-8') as csv_file:
             readRow[6] = str(readRow[6])
             # readRow[7] = str(readRow[7])
             readRow[7] = True if readRow[7] == 1 else False
-            readRow[8] = True if readRow[8] == 1 else False
+            # readRow[8] = True if readRow[8] == 1 else False
             # TimeTake is readRow[9]
-            readRow[9] = int(readRow[9])
+            readRow[8] = int(readRow[8])
             
             #Gender is readRow[10]: depends on the timeTaken
-            readRow[10] = True if readRow[9] <=253 else False
+            readRow[9] = True if readRow[9] <= 253 else False
             visit.append(readRow)
         i += 1
     print(counter)
     print(len(visit))
     # JUI, add the column_name (in the same order as you appended the data before.
-     visit_columns.append("gender")
+    visit_columns.append("time taken")
+    visit_columns.append("gender")
 # Save data in new csv file
-with open('data_file.csv', mode='wb') as csvfile:
-    data_writer = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-    data_writer.writerow(visit_columns)
-    for row in visit:
-       data_writer.writerow(row)
+# with open('data_file.csv', mode='wb') as csvfile:
+#     data_writer = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+#     data_writer.writerow(visit_columns)
+#     for row in visit:
+#        data_writer.writerow(row)
 
 
 # Method to get the data

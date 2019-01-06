@@ -21,34 +21,56 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/importData.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-458">
-              <caret line="105" column="12" selection-start-line="105" selection-start-column="12" selection-end-line="107" selection-end-column="56" />
+            <state relative-caret-position="313">
+              <caret line="158" column="14" lean-forward="true" selection-start-line="158" selection-start-column="14" selection-end-line="158" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/beamSearchAva.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-61">
+              <caret line="294" column="1" lean-forward="true" selection-start-line="294" selection-start-column="1" selection-end-line="294" selection-end-column="48" />
+              <folding>
+                <element signature="e#13380#15264#0" />
+                <element signature="e#15297#16094#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/beamSearchAva.py">
+        <entry file="file://$PROJECT_DIR$/beamSearchJui.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="421" lean-forward="true" selection-start-line="421" selection-end-line="421" />
+            <state relative-caret-position="145">
+              <caret line="298" column="34" selection-start-line="298" selection-start-column="34" selection-end-line="298" selection-end-column="34" />
               <folding>
-                <element signature="e#153#812#1" />
-                <element signature="e#840#1848#0" />
-                <element signature="e#1979#2323#0" />
-                <element signature="e#2326#2884#1" />
-                <element signature="e#5528#5666#0" />
-                <element signature="e#5864#6002#0" />
-                <element signature="e#6070#6208#0" />
-                <element signature="e#6277#6415#0" />
-                <element signature="e#6737#6844#0" />
-                <element signature="e#6982#7098#0" />
-                <element signature="e#7823#10279#0" />
-                <element signature="e#9292#9858#0" />
-                <element signature="e#10896#11787#0" />
-                <element signature="e#11839#12142#0" />
-                <element signature="e#12852#13135#0" />
-                <element signature="e#15297#16094#0" />
+                <element signature="e#0#12#0" expanded="true" />
+                <element signature="e#1315#2323#0" />
+                <element signature="e#2454#2798#0" />
+                <element signature="e#3410#5809#0" />
+                <element signature="e#6003#6141#0" />
+                <element signature="e#6343#6481#0" />
+                <element signature="e#6689#6827#0" />
+                <element signature="e#7037#7175#0" />
+                <element signature="e#7304#7447#0" />
+                <element signature="e#7480#7577#0" />
+                <element signature="e#7845#10286#0" />
+                <element signature="e#10441#10534#0" />
+                <element signature="e#10632#11282#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/importDataJui.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="158" column="22" lean-forward="true" selection-start-line="158" selection-start-column="18" selection-end-line="158" selection-end-column="22" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -71,14 +93,16 @@
         <option value="$PROJECT_DIR$/import.py" />
         <option value="$PROJECT_DIR$/importData.py" />
         <option value="$PROJECT_DIR$/beamSearchAva.py" />
+        <option value="$PROJECT_DIR$/importDataJui.py" />
+        <option value="$PROJECT_DIR$/beamSearchJui.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1928" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="-11" />
+    <option name="y" value="-11" />
+    <option name="width" value="2183" />
+    <option name="height" value="1403" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -86,7 +110,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -98,6 +121,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -264,17 +288,18 @@
       <workItem from="1546517425984" duration="4681000" />
       <workItem from="1546523720570" duration="260000" />
       <workItem from="1546531217130" duration="33946000" />
+      <workItem from="1546772905050" duration="1065000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111212000" />
+    <option name="totallyTimeSpent" value="112277000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-7" y="-7" width="1455" height="935" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17004265" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17275986" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -398,41 +423,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/Program Files (x86)/Python/Lib/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="618">
-          <caret line="310" selection-start-line="310" selection-end-line="310" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://D:/Program Files (x86)/Python/Lib/codecs.py" />
     <entry file="file://$PROJECT_DIR$/importData.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-458">
-          <caret line="105" column="12" selection-start-line="105" selection-start-column="12" selection-end-line="107" selection-end-column="56" />
+        <state relative-caret-position="313">
+          <caret line="158" column="14" lean-forward="true" selection-start-line="158" selection-start-column="14" selection-end-line="158" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/beamSearchAva.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="421" lean-forward="true" selection-start-line="421" selection-end-line="421" />
+        <state relative-caret-position="-61">
+          <caret line="294" column="1" lean-forward="true" selection-start-line="294" selection-start-column="1" selection-end-line="294" selection-end-column="48" />
           <folding>
-            <element signature="e#153#812#1" />
-            <element signature="e#840#1848#0" />
-            <element signature="e#1979#2323#0" />
-            <element signature="e#2326#2884#1" />
-            <element signature="e#5528#5666#0" />
-            <element signature="e#5864#6002#0" />
-            <element signature="e#6070#6208#0" />
-            <element signature="e#6277#6415#0" />
-            <element signature="e#6737#6844#0" />
-            <element signature="e#6982#7098#0" />
-            <element signature="e#7823#10279#0" />
-            <element signature="e#9292#9858#0" />
-            <element signature="e#10896#11787#0" />
-            <element signature="e#11839#12142#0" />
-            <element signature="e#12852#13135#0" />
+            <element signature="e#13380#15264#0" />
             <element signature="e#15297#16094#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/importDataJui.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="158" column="22" lean-forward="true" selection-start-line="158" selection-start-column="18" selection-end-line="158" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/beamSearchJui.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="298" column="34" selection-start-line="298" selection-start-column="34" selection-end-line="298" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+            <element signature="e#1315#2323#0" />
+            <element signature="e#2454#2798#0" />
+            <element signature="e#3410#5809#0" />
+            <element signature="e#6003#6141#0" />
+            <element signature="e#6343#6481#0" />
+            <element signature="e#6689#6827#0" />
+            <element signature="e#7037#7175#0" />
+            <element signature="e#7304#7447#0" />
+            <element signature="e#7480#7577#0" />
+            <element signature="e#7845#10286#0" />
+            <element signature="e#10441#10534#0" />
+            <element signature="e#10632#11282#0" />
           </folding>
         </state>
       </provider>
